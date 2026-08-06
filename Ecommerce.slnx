@@ -1,0 +1,46 @@
+<Solution>
+  <Folder Name="/Solution Items/" />
+  <Folder Name="/src/" />
+  <Folder Name="/src/BuildingBlocks/">
+    <Project Path="src/BuildingBlocks/Common.Auth/Common.Auth.csproj" />
+  </Folder>
+  <Folder Name="/src/Gateway/">
+    <Project Path="src/Gateway/Ecommerce.Gateway/Ecommerce.Gateway.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/" />
+  <Folder Name="/src/Services/Approvvigionamento/">
+    <Project Path="src/Services/Approvvigionamento/Approvvigionamento.Business/Approvvigionamento.Business.csproj" />
+    <Project Path="src/Services/Approvvigionamento/Approvvigionamento.ClientHttp/Approvvigionamento.ClientHttp.csproj" />
+    <Project Path="src/Services/Approvvigionamento/Approvvigionamento.Repository/Approvvigionamento.Repository.csproj" />
+    <Project Path="src/Services/Approvvigionamento/Approvvigionamento.Shared/Approvvigionamento.Shared.csproj" />
+    <Project Path="src/Services/Approvvigionamento/Approvvigionamento.WebApi/Approvvigionamento.WebApi.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Magazzino/">
+    <Project Path="src/Services/Magazzino/Magazzino.Business/Magazzino.Business.csproj" />
+    <Project Path="src/Services/Magazzino/Magazzino.ClientHttp/Magazzino.ClientHttp.csproj" />
+    <Project Path="src/Services/Magazzino/Magazzino.Repository/Magazzino.Repository.csproj" />
+    <Project Path="src/Services/Magazzino/Magazzino.Shared/Magazzino.Shared.csproj" />
+    <Project Path="src/Services/Magazzino/Magazzino.WebApi/Magazzino.WebApi.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Ordini/">
+    <Project Path="src/Services/Ordini/Ordini.Business/Ordini.Business.csproj" />
+    <Project Path="src/Services/Ordini/Ordini.ClientHttp/Ordini.ClientHttp.csproj" />
+    <Project Path="src/Services/Ordini/Ordini.Repository/Ordini.Repository.csproj" />
+    <Project Path="src/Services/Ordini/Ordini.Shared/Ordini.Shared.csproj" />
+    <Project Path="src/Services/Ordini/Ordini.WebApi/Ordini.WebApi.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Pagamenti/">
+    <Project Path="src/Services/Pagamenti/Pagamenti.Business/Pagamenti.Business.csproj" />
+    <Project Path="src/Services/Pagamenti/Pagamenti.ClientHttp/Pagamenti.ClientHttp.csproj" />
+    <Project Path="src/Services/Pagamenti/Pagamenti.Repository/Pagamenti.Repository.csproj" />
+    <Project Path="src/Services/Pagamenti/Pagamenti.Shared/Pagamenti.Shared.csproj" />
+    <Project Path="src/Services/Pagamenti/Pagamenti.WebApi/Pagamenti.WebApi.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Utenti/">
+    <Project Path="src/Services/Utenti/Utenti.Business/Utenti.Business.csproj" />
+    <Project Path="src/Services/Utenti/Utenti.ClientHttp/Utenti.ClientHttp.csproj" />
+    <Project Path="src/Services/Utenti/Utenti.Repository/Utenti.Repository.csproj" />
+    <Project Path="src/Services/Utenti/Utenti.Shared/Utenti.Shared.csproj" />
+    <Project Path="src/Services/Utenti/Utenti.WebApi/Utenti.WebApi.csproj" />
+  </Folder>
+</Solution>

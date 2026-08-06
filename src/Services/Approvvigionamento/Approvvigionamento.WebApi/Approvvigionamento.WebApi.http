@@ -1,0 +1,6 @@
+@Approvvigionamento.WebApi_HostAddress = http://localhost:5093
+
+GET {{Approvvigionamento.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
