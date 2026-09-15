@@ -1,4 +1,11 @@
+using Magazzino.Business.Kafka;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<OrdineCreatoHandler>();
+
+builder.Services.AddKafkaConsumerService<MagazzinoKafkaTopics, MagazzinoMessageHandlerFactory>(
+    builder.Configuration);
 
 // Add services to the container.
 
