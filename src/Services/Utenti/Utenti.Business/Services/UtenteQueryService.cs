@@ -18,9 +18,7 @@ public class UtenteQueryService : IUtenteQueryService
         var utente = await _utenteRepository.GetByIdAsync(utenteId);
 
         if (utente is null)
-        {
             return null;
-        }
 
         return new UtenteDto
         {

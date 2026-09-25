@@ -1,0 +1,213 @@
+#!/usr/bin/env bash
+# ==============================================================================
+# Script per la creazione automatica della struttura Microservizi Ecommerce
+# ==============================================================================
+
+set -e
+
+echo "🚀 Inizio creazione della struttura di progetto Ecommerce..."
+
+# 1. Cartella Principale
+mkdir -p Ecommerce
+cd Ecommerce
+
+# 2. Inizializzazione Solution
+echo "📦 Creazione della soluzione Ecommerce.sln..."
+dotnet new sln -n Ecommerce
+
+# 3. Cartelle Root
+mkdir -p database nuget-local
+
+touch database/utenti.sql
+touch database/ordini.sql
+touch database/pagamenti.sql
+touch database/magazzino.sql
+touch database/approvvigionamento.sql
+touch docker-compose.yml
+touch README.md
+
+# ==============================================================================
+# CREAZIONE PROGETTI .NET
+# ==============================================================================
+
+echo "🔨 Creazione dei microservizi e delle librerie..."
+
+# --- MICROSERVIZIO UTENTI ---
+dotnet new webapi -o src/Services/Utenti/Utenti.WebApi --no-openapi
+dotnet new classlib -o src/Services/Utenti/Utenti.Business
+dotnet new classlib -o src/Services/Utenti/Utenti.ClientHttp
+dotnet new classlib -o src/Services/Utenti/Utenti.Repository
+dotnet new classlib -o src/Services/Utenti/Utenti.Shared
+
+# --- MICROSERVIZIO ORDINI ---
+dotnet new webapi -o src/Services/Ordini/Ordini.WebApi --no-openapi
+dotnet new classlib -o src/Services/Ordini/Ordini.Business
+dotnet new classlib -o src/Services/Ordini/Ordini.ClientHttp
+dotnet new classlib -o src/Services/Ordini/Ordini.Repository
+dotnet new classlib -o src/Services/Ordini/Ordini.Shared
+
+# --- MICROSERVIZIO PAGAMENTI ---
+dotnet new webapi -o src/Services/Pagamenti/Pagamenti.WebApi --no-openapi
+dotnet new classlib -o src/Services/Pagamenti/Pagamenti.Business
+dotnet new classlib -o src/Services/Pagamenti/Pagamenti.ClientHttp
+dotnet new classlib -o src/Services/Pagamenti/Pagamenti.Repository
+dotnet new classlib -o src/Services/Pagamenti/Pagamenti.Shared
+
+# --- MICROSERVIZIO MAGAZZINO ---
+dotnet new webapi -o src/Services/Magazzino/Magazzino.WebApi --no-openapi
+dotnet new classlib -o src/Services/Magazzino/Magazzino.Business
+dotnet new classlib -o src/Services/Magazzino/Magazzino.ClientHttp
+dotnet new classlib -o src/Services/Magazzino/Magazzino.Repository
+dotnet new classlib -o src/Services/Magazzino/Magazzino.Shared
+
+# --- MICROSERVIZIO APPROVVIGIONAMENTO ---
+dotnet new webapi -o src/Services/Approvvigionamento/Approvvigionamento.WebApi --no-openapi
+dotnet new classlib -o src/Services/Approvvigionamento/Approvvigionamento.Business
+dotnet new classlib -o src/Services/Approvvigionamento/Approvvigionamento.ClientHttp
+dotnet new classlib -o src/Services/Approvvigionamento/Approvvigionamento.Repository
+dotnet new classlib -o src/Services/Approvvigionamento/Approvvigionamento.Shared
+
+# --- BUILDING BLOCKS ---
+dotnet new classlib -o src/BuildingBlocks/Common.Auth
+
+# --- GATEWAY ---
+dotnet new webapi -o src/Gateway/Ecommerce.Gateway --no-openapi
+
+# --- FRONTEND (Cartella statica HTML/JS) ---
+mkdir -p src/Frontend/Ecommerce.Frontend/cliente
+mkdir -p src/Frontend/Ecommerce.Frontend/fornitore
+mkdir -p src/Frontend/Ecommerce.Frontend/js
+mkdir -p src/Frontend/Ecommerce.Frontend/css
+
+touch src/Frontend/Ecommerce.Frontend/index.html
+touch src/Frontend/Ecommerce.Frontend/login.html
+touch src/Frontend/Ecommerce.Frontend/cliente/ordini.html
+touch src/Frontend/Ecommerce.Frontend/fornitore/prodotti.html
+touch src/Frontend/Ecommerce.Frontend/js/api.js
+touch src/Frontend/Ecommerce.Frontend/js/auth.js
+touch src/Frontend/Ecommerce.Frontend/css/style.css
+touch src/Frontend/Ecommerce.Frontend/Dockerfile
+
+# ==============================================================================
+# STRUTTURA DETTAGLIATA E FILE SPECIFICI
+# ==============================================================================
+
+echo "📂 Creazione di file e sottocartelle specifiche..."
+
+# --- UTENTI ---
+mkdir -p src/Services/Utenti/Utenti.WebApi/Controllers
+touch src/Services/Utenti/Utenti.WebApi/Controllers/AuthController.cs
+touch src/Services/Utenti/Utenti.WebApi/Dockerfile
+
+mkdir -p src/Services/Utenti/Utenti.Business/Interfaces
+mkdir -p src/Services/Utenti/Utenti.Business/Services
+mkdir -p src/Services/Utenti/Utenti.Business/Validators
+touch src/Services/Utenti/Utenti.Business/Interfaces/IAuthService.cs
+touch src/Services/Utenti/Utenti.Business/Services/AuthService.cs
+touch src/Services/Utenti/Utenti.Business/Services/PasswordHasher.cs
+touch src/Services/Utenti/Utenti.Business/Validators/RegistrazioneValidator.cs
+
+touch src/Services/Utenti/Utenti.ClientHttp/IUtentiClient.cs
+touch src/Services/Utenti/Utenti.ClientHttp/UtentiClient.cs
+touch src/Services/Utenti/Utenti.ClientHttp/ServiceCollectionExtensions.cs
+
+mkdir -p src/Services/Utenti/Utenti.Repository/Entities
+mkdir -p src/Services/Utenti/Utenti.Repository/Migrations
+mkdir -p src/Services/Utenti/Utenti.Repository/Repositories
+touch src/Services/Utenti/Utenti.Repository/UtentiDbContext.cs
+touch src/Services/Utenti/Utenti.Repository/Entities/Utente.cs
+touch src/Services/Utenti/Utenti.Repository/Repositories/UtenteRepository.cs
+
+mkdir -p src/Services/Utenti/Utenti.Shared/Enums
+mkdir -p src/Services/Utenti/Utenti.Shared/DTOs
+touch src/Services/Utenti/Utenti.Shared/Enums/RuoloUtente.cs
+touch src/Services/Utenti/Utenti.Shared/DTOs/LoginRequest.cs
+touch src/Services/Utenti/Utenti.Shared/DTOs/RegistrazioneRequest.cs
+touch src/Services/Utenti/Utenti.Shared/DTOs/LoginResponse.cs
+touch src/Services/Utenti/Utenti.Shared/DTOs/UtenteDto.cs
+
+# --- ORDINI ---
+mkdir -p src/Services/Ordini/Ordini.WebApi/Controllers
+mkdir -p src/Services/Ordini/Ordini.WebApi/Consumers
+touch src/Services/Ordini/Ordini.WebApi/Controllers/OrdiniController.cs
+touch src/Services/Ordini/Ordini.WebApi/Consumers/PagamentoCompletatoConsumer.cs
+touch src/Services/Ordini/Ordini.WebApi/Consumers/PagamentoFallitoConsumer.cs
+touch src/Services/Ordini/Ordini.WebApi/appsettings.Development.json
+touch src/Services/Ordini/Ordini.WebApi/Dockerfile
+
+mkdir -p src/Services/Ordini/Ordini.Business/Interfaces
+mkdir -p src/Services/Ordini/Ordini.Business/Services
+mkdir -p src/Services/Ordini/Ordini.Business/Validators
+mkdir -p src/Services/Ordini/Ordini.Business/Mapping
+touch src/Services/Ordini/Ordini.Business/Interfaces/IOrdineService.cs
+touch src/Services/Ordini/Ordini.Business/Services/OrdineService.cs
+touch src/Services/Ordini/Ordini.Business/Validators/CreaOrdineValidator.cs
+touch src/Services/Ordini/Ordini.Business/Mapping/OrdineMappingProfile.cs
+
+touch src/Services/Ordini/Ordini.ClientHttp/IOrdiniClient.cs
+touch src/Services/Ordini/Ordini.ClientHttp/OrdiniClient.cs
+touch src/Services/Ordini/Ordini.ClientHttp/ServiceCollectionExtensions.cs
+
+mkdir -p src/Services/Ordini/Ordini.Repository/Entities
+mkdir -p src/Services/Ordini/Ordini.Repository/Migrations
+mkdir -p src/Services/Ordini/Ordini.Repository/Interfaces
+mkdir -p src/Services/Ordini/Ordini.Repository/Repositories
+touch src/Services/Ordini/Ordini.Repository/OrdiniDbContext.cs
+touch src/Services/Ordini/Ordini.Repository/Entities/Ordine.cs
+touch src/Services/Ordini/Ordini.Repository/Entities/RigaOrdine.cs
+touch src/Services/Ordini/Ordini.Repository/Interfaces/IOrdineRepository.cs
+touch src/Services/Ordini/Ordini.Repository/Repositories/OrdineRepository.cs
+
+mkdir -p src/Services/Ordini/Ordini.Shared/Enums
+mkdir -p src/Services/Ordini/Ordini.Shared/Events
+mkdir -p src/Services/Ordini/Ordini.Shared/Constants
+mkdir -p src/Services/Ordini/Ordini.Shared/DTOs
+touch src/Services/Ordini/Ordini.Shared/Enums/StatoOrdine.cs
+touch src/Services/Ordini/Ordini.Shared/Events/OrdineCreatoEvent.cs
+touch src/Services/Ordini/Ordini.Shared/Events/OrdineConfermatoEvent.cs
+touch src/Services/Ordini/Ordini.Shared/Constants/KafkaTopics.cs
+touch src/Services/Ordini/Ordini.Shared/DTOs/OrdineDto.cs
+touch src/Services/Ordini/Ordini.Shared/DTOs/CreaOrdineRequest.cs
+
+# --- PAGAMENTI ---
+mkdir -p src/Services/Pagamenti/Pagamenti.Shared/DTOs
+
+# --- MAGAZZINO ---
+mkdir -p src/Services/Magazzino/Magazzino.Shared/DTOs
+
+# --- APPROVVIGIONAMENTO ---
+mkdir -p src/Services/Approvvigionamento/Approvvigionamento.WebApi/Controllers
+mkdir -p src/Services/Approvvigionamento/Approvvigionamento.WebApi/Consumers
+touch src/Services/Approvvigionamento/Approvvigionamento.WebApi/Controllers/ForniturePasController.cs
+touch src/Services/Approvvigionamento/Approvvigionamento.WebApi/Consumers/ScortaBassaConsumer.cs
+touch src/Services/Approvvigionamento/Approvvigionamento.WebApi/Dockerfile
+
+mkdir -p src/Services/Approvvigionamento/Approvvigionamento.Business/Services
+touch src/Services/Approvvigionamento/Approvvigionamento.Business/Services/FornituraService.cs
+
+mkdir -p src/Services/Approvvigionamento/Approvvigionamento.Repository/Entities
+touch src/Services/Approvvigionamento/Approvvigionamento.Repository/Entities/Fornitura.cs
+touch src/Services/Approvvigionamento/Approvvigionamento.Repository/Entities/RichiestaRifornimento.cs
+touch src/Services/Approvvigionamento/Approvvigionamento.Repository/ApprovvigionamentoDbContext.cs
+
+mkdir -p src/Services/Approvvigionamento/Approvvigionamento.Shared/Events
+mkdir -p src/Services/Approvvigionamento/Approvvigionamento.Shared/DTOs
+touch src/Services/Approvvigionamento/Approvvigionamento.Shared/Events/ScortaBassaEvent.cs
+touch src/Services/Approvvigionamento/Approvvigionamento.Shared/Events/RiassortimentoCompletatoEvent.cs
+
+# --- BUILDING BLOCKS ---
+touch src/BuildingBlocks/Common.Auth/JwtSettings.cs
+touch src/BuildingBlocks/Common.Auth/ServiceCollectionExtensions.cs
+touch src/BuildingBlocks/Common.Auth/ClaimTypesCustom.cs
+
+# --- GATEWAY ---
+touch src/Gateway/Ecommerce.Gateway/Dockerfile
+
+# ==============================================================================
+# AGGIUNTA DEI PROGETTI ALLA SOLUTION
+# ==============================================================================
+
+echo "🔗 Aggiunta di tutti i progetti .csproj a Ecommerce.sln..."
+dotnet sln Ecommerce.sln add src/**/*.csproj
+
+echo "✅ Struttura completata con successo!"

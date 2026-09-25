@@ -1,0 +1,1683 @@
+.
+├── Ecommerce.sln.DotSettings.user
+├── Ecommerce.slnx
+├── README.md
+├── database
+│   ├── approvvigionamento.sql
+│   ├── init-databases.sh
+│   ├── magazzino.sql
+│   ├── ordini.sql
+│   ├── pagamenti.sql
+│   └── utenti.sql
+├── docker-compose.yml
+├── nuget-local
+├── nuget.config
+├── src
+│   ├── BuildingBlocks
+│   │   ├── Common.Auth
+│   │   │   ├── ClaimTypesCustom.cs
+│   │   │   ├── Common.Auth.csproj
+│   │   │   ├── ITokenGenerator.cs
+│   │   │   ├── JwtSettings.cs
+│   │   │   ├── JwtTokenGenerator.cs
+│   │   │   ├── ServiceCollectionExtensions.cs
+│   │   │   ├── bin
+│   │   │   │   └── Debug
+│   │   │   │       └── net10.0
+│   │   │   │           ├── Common.Auth.deps.json
+│   │   │   │           ├── Common.Auth.dll
+│   │   │   │           └── Common.Auth.pdb
+│   │   │   └── obj
+│   │   │       ├── Common.Auth.csproj.nuget.dgspec.json
+│   │   │       ├── Common.Auth.csproj.nuget.g.props
+│   │   │       ├── Common.Auth.csproj.nuget.g.targets
+│   │   │       ├── Debug
+│   │   │       │   └── net10.0
+│   │   │       │       ├── Common.Auth.AssemblyInfo.cs
+│   │   │       │       ├── Common.Auth.AssemblyInfoInputs.cache
+│   │   │       │       ├── Common.Auth.GeneratedMSBuildEditorConfig.editorconfig
+│   │   │       │       ├── Common.Auth.GlobalUsings.g.cs
+│   │   │       │       ├── Common.Auth.assets.cache
+│   │   │       │       ├── Common.Auth.csproj.AssemblyReference.cache
+│   │   │       │       ├── Common.Auth.csproj.CoreCompileInputs.cache
+│   │   │       │       ├── Common.Auth.csproj.FileListAbsolute.txt
+│   │   │       │       ├── Common.Auth.dll
+│   │   │       │       ├── Common.Auth.pdb
+│   │   │       │       ├── Common.Auth.sourcelink.json
+│   │   │       │       ├── ref
+│   │   │       │       │   └── Common.Auth.dll
+│   │   │       │       └── refint
+│   │   │       │           └── Common.Auth.dll
+│   │   │       ├── project.assets.json
+│   │   │       ├── project.nuget.cache
+│   │   │       ├── project.packagespec.json
+│   │   │       ├── rider.project.model.nuget.info
+│   │   │       └── rider.project.restore.info
+│   │   ├── Domain.Common
+│   │   │   ├── Domain.Common.csproj
+│   │   │   ├── bin
+│   │   │   │   └── Debug
+│   │   │   │       └── net10.0
+│   │   │   │           ├── Domain.Common.deps.json
+│   │   │   │           ├── Domain.Common.dll
+│   │   │   │           └── Domain.Common.pdb
+│   │   │   └── obj
+│   │   │       ├── Debug
+│   │   │       │   └── net10.0
+│   │   │       │       ├── Domain.Common.AssemblyInfo.cs
+│   │   │       │       ├── Domain.Common.AssemblyInfoInputs.cache
+│   │   │       │       ├── Domain.Common.GeneratedMSBuildEditorConfig.editorconfig
+│   │   │       │       ├── Domain.Common.GlobalUsings.g.cs
+│   │   │       │       ├── Domain.Common.assets.cache
+│   │   │       │       ├── Domain.Common.csproj.CoreCompileInputs.cache
+│   │   │       │       ├── Domain.Common.csproj.FileListAbsolute.txt
+│   │   │       │       ├── Domain.Common.dll
+│   │   │       │       ├── Domain.Common.pdb
+│   │   │       │       ├── Domain.Common.sourcelink.json
+│   │   │       │       ├── ref
+│   │   │       │       │   └── Domain.Common.dll
+│   │   │       │       └── refint
+│   │   │       │           └── Domain.Common.dll
+│   │   │       ├── Domain.Common.csproj.nuget.dgspec.json
+│   │   │       ├── Domain.Common.csproj.nuget.g.props
+│   │   │       ├── Domain.Common.csproj.nuget.g.targets
+│   │   │       ├── Entity.cs
+│   │   │       ├── project.assets.json
+│   │   │       ├── project.nuget.cache
+│   │   │       ├── project.packagespec.json
+│   │   │       ├── rider.project.model.nuget.info
+│   │   │       └── rider.project.restore.info
+│   │   └── EventBus.Contracts
+│   │       ├── EventBus.Contracts.csproj
+│   │       ├── Events
+│   │       │   └── OrderCreatedEvent.cs
+│   │       ├── IntegrationEvent.cs
+│   │       ├── bin
+│   │       │   └── Debug
+│   │       │       └── net10.0
+│   │       │           ├── EventBus.Contracts.deps.json
+│   │       │           ├── EventBus.Contracts.dll
+│   │       │           └── EventBus.Contracts.pdb
+│   │       └── obj
+│   │           ├── Debug
+│   │           │   └── net10.0
+│   │           │       ├── EventBus.Contracts.AssemblyInfo.cs
+│   │           │       ├── EventBus.Contracts.AssemblyInfoInputs.cache
+│   │           │       ├── EventBus.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+│   │           │       ├── EventBus.Contracts.GlobalUsings.g.cs
+│   │           │       ├── EventBus.Contracts.assets.cache
+│   │           │       ├── EventBus.Contracts.csproj.CoreCompileInputs.cache
+│   │           │       ├── EventBus.Contracts.csproj.FileListAbsolute.txt
+│   │           │       ├── EventBus.Contracts.dll
+│   │           │       ├── EventBus.Contracts.pdb
+│   │           │       ├── EventBus.Contracts.sourcelink.json
+│   │           │       ├── ref
+│   │           │       │   └── EventBus.Contracts.dll
+│   │           │       └── refint
+│   │           │           └── EventBus.Contracts.dll
+│   │           ├── EventBus.Contracts.csproj.nuget.dgspec.json
+│   │           ├── EventBus.Contracts.csproj.nuget.g.props
+│   │           ├── EventBus.Contracts.csproj.nuget.g.targets
+│   │           ├── project.assets.json
+│   │           ├── project.nuget.cache
+│   │           ├── project.packagespec.json
+│   │           ├── rider.project.model.nuget.info
+│   │           └── rider.project.restore.info
+│   ├── Frontend
+│   │   └── Ecommerce.Frontend
+│   │       ├── Dockerfile
+│   │       ├── cliente
+│   │       │   └── ordini.html
+│   │       ├── css
+│   │       │   └── style.css
+│   │       ├── fornitore
+│   │       │   └── prodotti.html
+│   │       ├── index.html
+│   │       ├── js
+│   │       │   ├── api.js
+│   │       │   └── auth.js
+│   │       └── login.html
+│   ├── Gateway
+│   │   └── Ecommerce.Gateway
+│   │       ├── Dockerfile
+│   │       ├── Ecommerce.Gateway.csproj
+│   │       ├── Ecommerce.Gateway.http
+│   │       ├── Program.cs
+│   │       ├── Properties
+│   │       │   └── launchSettings.json
+│   │       ├── appsettings.Development.json
+│   │       ├── appsettings.json
+│   │       ├── bin
+│   │       │   └── Debug
+│   │       │       └── net10.0
+│   │       │           ├── Ecommerce.Gateway
+│   │       │           ├── Ecommerce.Gateway.deps.json
+│   │       │           ├── Ecommerce.Gateway.dll
+│   │       │           ├── Ecommerce.Gateway.pdb
+│   │       │           ├── Ecommerce.Gateway.runtimeconfig.json
+│   │       │           ├── Ecommerce.Gateway.staticwebassets.endpoints.json
+│   │       │           ├── System.IO.Hashing.dll
+│   │       │           ├── Yarp.ReverseProxy.dll
+│   │       │           ├── appsettings.Development.json
+│   │       │           └── appsettings.json
+│   │       └── obj
+│   │           ├── Debug
+│   │           │   └── net10.0
+│   │           │       ├── Ecommerc.00A9CAFD.Up2Date
+│   │           │       ├── Ecommerce.Gateway.AssemblyInfo.cs
+│   │           │       ├── Ecommerce.Gateway.AssemblyInfoInputs.cache
+│   │           │       ├── Ecommerce.Gateway.GeneratedMSBuildEditorConfig.editorconfig
+│   │           │       ├── Ecommerce.Gateway.GlobalUsings.g.cs
+│   │           │       ├── Ecommerce.Gateway.MvcApplicationPartsAssemblyInfo.cache
+│   │           │       ├── Ecommerce.Gateway.assets.cache
+│   │           │       ├── Ecommerce.Gateway.csproj.AssemblyReference.cache
+│   │           │       ├── Ecommerce.Gateway.csproj.CoreCompileInputs.cache
+│   │           │       ├── Ecommerce.Gateway.csproj.FileListAbsolute.txt
+│   │           │       ├── Ecommerce.Gateway.dll
+│   │           │       ├── Ecommerce.Gateway.genruntimeconfig.cache
+│   │           │       ├── Ecommerce.Gateway.pdb
+│   │           │       ├── Ecommerce.Gateway.sourcelink.json
+│   │           │       ├── apphost
+│   │           │       ├── ref
+│   │           │       │   └── Ecommerce.Gateway.dll
+│   │           │       ├── refint
+│   │           │       │   └── Ecommerce.Gateway.dll
+│   │           │       ├── rjsmcshtml.dswa.cache.json
+│   │           │       ├── rjsmrazor.dswa.cache.json
+│   │           │       ├── rpswa.dswa.cache.json
+│   │           │       ├── staticwebassets
+│   │           │       ├── staticwebassets.build.endpoints.json
+│   │           │       ├── staticwebassets.build.json
+│   │           │       ├── staticwebassets.build.json.cache
+│   │           │       └── swae.build.ex.cache
+│   │           ├── Ecommerce.Gateway.csproj.nuget.dgspec.json
+│   │           ├── Ecommerce.Gateway.csproj.nuget.g.props
+│   │           ├── Ecommerce.Gateway.csproj.nuget.g.targets
+│   │           ├── project.assets.json
+│   │           ├── project.nuget.cache
+│   │           ├── project.packagespec.json
+│   │           ├── rider.project.model.nuget.info
+│   │           └── rider.project.restore.info
+│   └── Services
+│       ├── Approvvigionamento
+│       │   ├── Approvvigionamento.Business
+│       │   │   ├── Approvvigionamento.Business.csproj
+│       │   │   ├── Class1.cs
+│       │   │   ├── Services
+│       │   │   │   └── FornituraService.cs
+│       │   │   ├── bin
+│       │   │   │   └── Debug
+│       │   │   │       └── net10.0
+│       │   │   │           ├── Approvvigionamento.Business.deps.json
+│       │   │   │           ├── Approvvigionamento.Business.dll
+│       │   │   │           └── Approvvigionamento.Business.pdb
+│       │   │   └── obj
+│       │   │       ├── Approvvigionamento.Business.csproj.nuget.dgspec.json
+│       │   │       ├── Approvvigionamento.Business.csproj.nuget.g.props
+│       │   │       ├── Approvvigionamento.Business.csproj.nuget.g.targets
+│       │   │       ├── Debug
+│       │   │       │   └── net10.0
+│       │   │       │       ├── Approvvigionamento.Business.AssemblyInfo.cs
+│       │   │       │       ├── Approvvigionamento.Business.AssemblyInfoInputs.cache
+│       │   │       │       ├── Approvvigionamento.Business.GeneratedMSBuildEditorConfig.editorconfig
+│       │   │       │       ├── Approvvigionamento.Business.GlobalUsings.g.cs
+│       │   │       │       ├── Approvvigionamento.Business.assets.cache
+│       │   │       │       ├── Approvvigionamento.Business.csproj.CoreCompileInputs.cache
+│       │   │       │       ├── Approvvigionamento.Business.csproj.FileListAbsolute.txt
+│       │   │       │       ├── Approvvigionamento.Business.dll
+│       │   │       │       ├── Approvvigionamento.Business.pdb
+│       │   │       │       ├── Approvvigionamento.Business.sourcelink.json
+│       │   │       │       ├── ref
+│       │   │       │       │   └── Approvvigionamento.Business.dll
+│       │   │       │       └── refint
+│       │   │       │           └── Approvvigionamento.Business.dll
+│       │   │       ├── project.assets.json
+│       │   │       ├── project.nuget.cache
+│       │   │       ├── project.packagespec.json
+│       │   │       ├── rider.project.model.nuget.info
+│       │   │       └── rider.project.restore.info
+│       │   ├── Approvvigionamento.ClientHttp
+│       │   │   ├── Approvvigionamento.ClientHttp.csproj
+│       │   │   ├── Class1.cs
+│       │   │   ├── bin
+│       │   │   │   └── Debug
+│       │   │   │       └── net10.0
+│       │   │   │           ├── Approvvigionamento.ClientHttp.deps.json
+│       │   │   │           ├── Approvvigionamento.ClientHttp.dll
+│       │   │   │           └── Approvvigionamento.ClientHttp.pdb
+│       │   │   └── obj
+│       │   │       ├── Approvvigionamento.ClientHttp.csproj.nuget.dgspec.json
+│       │   │       ├── Approvvigionamento.ClientHttp.csproj.nuget.g.props
+│       │   │       ├── Approvvigionamento.ClientHttp.csproj.nuget.g.targets
+│       │   │       ├── Debug
+│       │   │       │   └── net10.0
+│       │   │       │       ├── Approvvigionamento.ClientHttp.AssemblyInfo.cs
+│       │   │       │       ├── Approvvigionamento.ClientHttp.AssemblyInfoInputs.cache
+│       │   │       │       ├── Approvvigionamento.ClientHttp.GeneratedMSBuildEditorConfig.editorconfig
+│       │   │       │       ├── Approvvigionamento.ClientHttp.GlobalUsings.g.cs
+│       │   │       │       ├── Approvvigionamento.ClientHttp.assets.cache
+│       │   │       │       ├── Approvvigionamento.ClientHttp.csproj.CoreCompileInputs.cache
+│       │   │       │       ├── Approvvigionamento.ClientHttp.csproj.FileListAbsolute.txt
+│       │   │       │       ├── Approvvigionamento.ClientHttp.dll
+│       │   │       │       ├── Approvvigionamento.ClientHttp.pdb
+│       │   │       │       ├── Approvvigionamento.ClientHttp.sourcelink.json
+│       │   │       │       ├── ref
+│       │   │       │       │   └── Approvvigionamento.ClientHttp.dll
+│       │   │       │       └── refint
+│       │   │       │           └── Approvvigionamento.ClientHttp.dll
+│       │   │       ├── project.assets.json
+│       │   │       ├── project.nuget.cache
+│       │   │       ├── project.packagespec.json
+│       │   │       ├── rider.project.model.nuget.info
+│       │   │       └── rider.project.restore.info
+│       │   ├── Approvvigionamento.Repository
+│       │   │   ├── Approvvigionamento.Repository.csproj
+│       │   │   ├── ApprovvigionamentoDbContext.cs
+│       │   │   ├── Class1.cs
+│       │   │   ├── Entities
+│       │   │   │   ├── Fornitura.cs
+│       │   │   │   └── RichiestaRifornimento.cs
+│       │   │   ├── bin
+│       │   │   │   └── Debug
+│       │   │   │       └── net10.0
+│       │   │   │           ├── Approvvigionamento.Repository.deps.json
+│       │   │   │           ├── Approvvigionamento.Repository.dll
+│       │   │   │           └── Approvvigionamento.Repository.pdb
+│       │   │   └── obj
+│       │   │       ├── Approvvigionamento.Repository.csproj.nuget.dgspec.json
+│       │   │       ├── Approvvigionamento.Repository.csproj.nuget.g.props
+│       │   │       ├── Approvvigionamento.Repository.csproj.nuget.g.targets
+│       │   │       ├── Debug
+│       │   │       │   └── net10.0
+│       │   │       │       ├── Approvvigionamento.Repository.AssemblyInfo.cs
+│       │   │       │       ├── Approvvigionamento.Repository.AssemblyInfoInputs.cache
+│       │   │       │       ├── Approvvigionamento.Repository.GeneratedMSBuildEditorConfig.editorconfig
+│       │   │       │       ├── Approvvigionamento.Repository.GlobalUsings.g.cs
+│       │   │       │       ├── Approvvigionamento.Repository.assets.cache
+│       │   │       │       ├── Approvvigionamento.Repository.csproj.CoreCompileInputs.cache
+│       │   │       │       ├── Approvvigionamento.Repository.csproj.FileListAbsolute.txt
+│       │   │       │       ├── Approvvigionamento.Repository.dll
+│       │   │       │       ├── Approvvigionamento.Repository.pdb
+│       │   │       │       ├── Approvvigionamento.Repository.sourcelink.json
+│       │   │       │       ├── ref
+│       │   │       │       │   └── Approvvigionamento.Repository.dll
+│       │   │       │       └── refint
+│       │   │       │           └── Approvvigionamento.Repository.dll
+│       │   │       ├── project.assets.json
+│       │   │       ├── project.nuget.cache
+│       │   │       ├── project.packagespec.json
+│       │   │       ├── rider.project.model.nuget.info
+│       │   │       └── rider.project.restore.info
+│       │   ├── Approvvigionamento.Shared
+│       │   │   ├── Approvvigionamento.Shared.csproj
+│       │   │   ├── Class1.cs
+│       │   │   ├── DTOs
+│       │   │   ├── Events
+│       │   │   │   ├── RiassortimentoCompletatoEvent.cs
+│       │   │   │   └── ScortaBassaEvent.cs
+│       │   │   ├── bin
+│       │   │   │   └── Debug
+│       │   │   │       └── net10.0
+│       │   │   │           ├── Approvvigionamento.Shared.deps.json
+│       │   │   │           ├── Approvvigionamento.Shared.dll
+│       │   │   │           └── Approvvigionamento.Shared.pdb
+│       │   │   └── obj
+│       │   │       ├── Approvvigionamento.Shared.csproj.nuget.dgspec.json
+│       │   │       ├── Approvvigionamento.Shared.csproj.nuget.g.props
+│       │   │       ├── Approvvigionamento.Shared.csproj.nuget.g.targets
+│       │   │       ├── Debug
+│       │   │       │   └── net10.0
+│       │   │       │       ├── Approvvigionamento.Shared.AssemblyInfo.cs
+│       │   │       │       ├── Approvvigionamento.Shared.AssemblyInfoInputs.cache
+│       │   │       │       ├── Approvvigionamento.Shared.GeneratedMSBuildEditorConfig.editorconfig
+│       │   │       │       ├── Approvvigionamento.Shared.GlobalUsings.g.cs
+│       │   │       │       ├── Approvvigionamento.Shared.assets.cache
+│       │   │       │       ├── Approvvigionamento.Shared.csproj.CoreCompileInputs.cache
+│       │   │       │       ├── Approvvigionamento.Shared.csproj.FileListAbsolute.txt
+│       │   │       │       ├── Approvvigionamento.Shared.dll
+│       │   │       │       ├── Approvvigionamento.Shared.pdb
+│       │   │       │       ├── Approvvigionamento.Shared.sourcelink.json
+│       │   │       │       ├── ref
+│       │   │       │       │   └── Approvvigionamento.Shared.dll
+│       │   │       │       └── refint
+│       │   │       │           └── Approvvigionamento.Shared.dll
+│       │   │       ├── project.assets.json
+│       │   │       ├── project.nuget.cache
+│       │   │       ├── project.packagespec.json
+│       │   │       ├── rider.project.model.nuget.info
+│       │   │       └── rider.project.restore.info
+│       │   └── Approvvigionamento.WebApi
+│       │       ├── Approvvigionamento.WebApi.csproj
+│       │       ├── Approvvigionamento.WebApi.http
+│       │       ├── Consumers
+│       │       │   └── ScortaBassaConsumer.cs
+│       │       ├── Controllers
+│       │       │   └── ForniturePasController.cs
+│       │       ├── Dockerfile
+│       │       ├── Program.cs
+│       │       ├── Properties
+│       │       │   └── launchSettings.json
+│       │       ├── appsettings.Development.json
+│       │       ├── appsettings.json
+│       │       ├── bin
+│       │       │   └── Debug
+│       │       │       └── net10.0
+│       │       │           ├── Approvvigionamento.WebApi
+│       │       │           ├── Approvvigionamento.WebApi.deps.json
+│       │       │           ├── Approvvigionamento.WebApi.dll
+│       │       │           ├── Approvvigionamento.WebApi.pdb
+│       │       │           ├── Approvvigionamento.WebApi.runtimeconfig.json
+│       │       │           ├── Approvvigionamento.WebApi.staticwebassets.endpoints.json
+│       │       │           ├── appsettings.Development.json
+│       │       │           └── appsettings.json
+│       │       └── obj
+│       │           ├── Approvvigionamento.WebApi.csproj.nuget.dgspec.json
+│       │           ├── Approvvigionamento.WebApi.csproj.nuget.g.props
+│       │           ├── Approvvigionamento.WebApi.csproj.nuget.g.targets
+│       │           ├── Debug
+│       │           │   └── net10.0
+│       │           │       ├── Approvvigionamento.WebApi.AssemblyInfo.cs
+│       │           │       ├── Approvvigionamento.WebApi.AssemblyInfoInputs.cache
+│       │           │       ├── Approvvigionamento.WebApi.GeneratedMSBuildEditorConfig.editorconfig
+│       │           │       ├── Approvvigionamento.WebApi.GlobalUsings.g.cs
+│       │           │       ├── Approvvigionamento.WebApi.MvcApplicationPartsAssemblyInfo.cache
+│       │           │       ├── Approvvigionamento.WebApi.assets.cache
+│       │           │       ├── Approvvigionamento.WebApi.csproj.CoreCompileInputs.cache
+│       │           │       ├── Approvvigionamento.WebApi.csproj.FileListAbsolute.txt
+│       │           │       ├── Approvvigionamento.WebApi.dll
+│       │           │       ├── Approvvigionamento.WebApi.genruntimeconfig.cache
+│       │           │       ├── Approvvigionamento.WebApi.pdb
+│       │           │       ├── Approvvigionamento.WebApi.sourcelink.json
+│       │           │       ├── apphost
+│       │           │       ├── ref
+│       │           │       │   └── Approvvigionamento.WebApi.dll
+│       │           │       ├── refint
+│       │           │       │   └── Approvvigionamento.WebApi.dll
+│       │           │       ├── rjsmcshtml.dswa.cache.json
+│       │           │       ├── rjsmrazor.dswa.cache.json
+│       │           │       ├── rpswa.dswa.cache.json
+│       │           │       ├── staticwebassets
+│       │           │       ├── staticwebassets.build.endpoints.json
+│       │           │       ├── staticwebassets.build.json
+│       │           │       ├── staticwebassets.build.json.cache
+│       │           │       └── swae.build.ex.cache
+│       │           ├── project.assets.json
+│       │           ├── project.nuget.cache
+│       │           ├── project.packagespec.json
+│       │           ├── rider.project.model.nuget.info
+│       │           └── rider.project.restore.info
+│       ├── Magazzino
+│       │   ├── Magazzino.Business
+│       │   │   ├── Class1.cs
+│       │   │   ├── Kafka
+│       │   │   │   ├── MagazzinoKafkaTopics.cs
+│       │   │   │   ├── MagazzinoMessageHandlerFactory.cs
+│       │   │   │   └── OrdineCreatoHandler.cs
+│       │   │   ├── Magazzino.Business.csproj
+│       │   │   ├── bin
+│       │   │   │   └── Debug
+│       │   │   │       └── net10.0
+│       │   │   │           ├── EventBus.Contracts.dll
+│       │   │   │           ├── EventBus.Contracts.pdb
+│       │   │   │           ├── Magazzino.Business.deps.json
+│       │   │   │           ├── Magazzino.Business.dll
+│       │   │   │           └── Magazzino.Business.pdb
+│       │   │   └── obj
+│       │   │       ├── Debug
+│       │   │       │   └── net10.0
+│       │   │       │       ├── Magazzin.3C77C1BA.Up2Date
+│       │   │       │       ├── Magazzino.Business.AssemblyInfo.cs
+│       │   │       │       ├── Magazzino.Business.AssemblyInfoInputs.cache
+│       │   │       │       ├── Magazzino.Business.GeneratedMSBuildEditorConfig.editorconfig
+│       │   │       │       ├── Magazzino.Business.GlobalUsings.g.cs
+│       │   │       │       ├── Magazzino.Business.assets.cache
+│       │   │       │       ├── Magazzino.Business.csproj.AssemblyReference.cache
+│       │   │       │       ├── Magazzino.Business.csproj.CoreCompileInputs.cache
+│       │   │       │       ├── Magazzino.Business.csproj.FileListAbsolute.txt
+│       │   │       │       ├── Magazzino.Business.dll
+│       │   │       │       ├── Magazzino.Business.pdb
+│       │   │       │       ├── Magazzino.Business.sourcelink.json
+│       │   │       │       ├── ref
+│       │   │       │       │   └── Magazzino.Business.dll
+│       │   │       │       └── refint
+│       │   │       │           └── Magazzino.Business.dll
+│       │   │       ├── Magazzino.Business.csproj.nuget.dgspec.json
+│       │   │       ├── Magazzino.Business.csproj.nuget.g.props
+│       │   │       ├── Magazzino.Business.csproj.nuget.g.targets
+│       │   │       ├── project.assets.json
+│       │   │       ├── project.nuget.cache
+│       │   │       ├── project.packagespec.json
+│       │   │       ├── rider.project.model.nuget.info
+│       │   │       └── rider.project.restore.info
+│       │   ├── Magazzino.ClientHttp
+│       │   │   ├── Class1.cs
+│       │   │   ├── Magazzino.ClientHttp.csproj
+│       │   │   ├── bin
+│       │   │   │   └── Debug
+│       │   │   │       └── net10.0
+│       │   │   │           ├── Magazzino.ClientHttp.deps.json
+│       │   │   │           ├── Magazzino.ClientHttp.dll
+│       │   │   │           └── Magazzino.ClientHttp.pdb
+│       │   │   └── obj
+│       │   │       ├── Debug
+│       │   │       │   └── net10.0
+│       │   │       │       ├── Magazzino.ClientHttp.AssemblyInfo.cs
+│       │   │       │       ├── Magazzino.ClientHttp.AssemblyInfoInputs.cache
+│       │   │       │       ├── Magazzino.ClientHttp.GeneratedMSBuildEditorConfig.editorconfig
+│       │   │       │       ├── Magazzino.ClientHttp.GlobalUsings.g.cs
+│       │   │       │       ├── Magazzino.ClientHttp.assets.cache
+│       │   │       │       ├── Magazzino.ClientHttp.csproj.CoreCompileInputs.cache
+│       │   │       │       ├── Magazzino.ClientHttp.csproj.FileListAbsolute.txt
+│       │   │       │       ├── Magazzino.ClientHttp.dll
+│       │   │       │       ├── Magazzino.ClientHttp.pdb
+│       │   │       │       ├── Magazzino.ClientHttp.sourcelink.json
+│       │   │       │       ├── ref
+│       │   │       │       │   └── Magazzino.ClientHttp.dll
+│       │   │       │       └── refint
+│       │   │       │           └── Magazzino.ClientHttp.dll
+│       │   │       ├── Magazzino.ClientHttp.csproj.nuget.dgspec.json
+│       │   │       ├── Magazzino.ClientHttp.csproj.nuget.g.props
+│       │   │       ├── Magazzino.ClientHttp.csproj.nuget.g.targets
+│       │   │       ├── project.assets.json
+│       │   │       ├── project.nuget.cache
+│       │   │       ├── project.packagespec.json
+│       │   │       ├── rider.project.model.nuget.info
+│       │   │       └── rider.project.restore.info
+│       │   ├── Magazzino.Repository
+│       │   │   ├── Class1.cs
+│       │   │   ├── Magazzino.Repository.csproj
+│       │   │   ├── bin
+│       │   │   │   └── Debug
+│       │   │   │       └── net10.0
+│       │   │   │           ├── Magazzino.Repository.deps.json
+│       │   │   │           ├── Magazzino.Repository.dll
+│       │   │   │           └── Magazzino.Repository.pdb
+│       │   │   └── obj
+│       │   │       ├── Debug
+│       │   │       │   └── net10.0
+│       │   │       │       ├── Magazzino.Repository.AssemblyInfo.cs
+│       │   │       │       ├── Magazzino.Repository.AssemblyInfoInputs.cache
+│       │   │       │       ├── Magazzino.Repository.GeneratedMSBuildEditorConfig.editorconfig
+│       │   │       │       ├── Magazzino.Repository.GlobalUsings.g.cs
+│       │   │       │       ├── Magazzino.Repository.assets.cache
+│       │   │       │       ├── Magazzino.Repository.csproj.CoreCompileInputs.cache
+│       │   │       │       ├── Magazzino.Repository.csproj.FileListAbsolute.txt
+│       │   │       │       ├── Magazzino.Repository.dll
+│       │   │       │       ├── Magazzino.Repository.pdb
+│       │   │       │       ├── Magazzino.Repository.sourcelink.json
+│       │   │       │       ├── ref
+│       │   │       │       │   └── Magazzino.Repository.dll
+│       │   │       │       └── refint
+│       │   │       │           └── Magazzino.Repository.dll
+│       │   │       ├── Magazzino.Repository.csproj.nuget.dgspec.json
+│       │   │       ├── Magazzino.Repository.csproj.nuget.g.props
+│       │   │       ├── Magazzino.Repository.csproj.nuget.g.targets
+│       │   │       ├── project.assets.json
+│       │   │       ├── project.nuget.cache
+│       │   │       ├── project.packagespec.json
+│       │   │       ├── rider.project.model.nuget.info
+│       │   │       └── rider.project.restore.info
+│       │   ├── Magazzino.Shared
+│       │   │   ├── Class1.cs
+│       │   │   ├── DTOs
+│       │   │   ├── Magazzino.Shared.csproj
+│       │   │   ├── bin
+│       │   │   │   └── Debug
+│       │   │   │       └── net10.0
+│       │   │   │           ├── Magazzino.Shared.deps.json
+│       │   │   │           ├── Magazzino.Shared.dll
+│       │   │   │           └── Magazzino.Shared.pdb
+│       │   │   └── obj
+│       │   │       ├── Debug
+│       │   │       │   └── net10.0
+│       │   │       │       ├── Magazzino.Shared.AssemblyInfo.cs
+│       │   │       │       ├── Magazzino.Shared.AssemblyInfoInputs.cache
+│       │   │       │       ├── Magazzino.Shared.GeneratedMSBuildEditorConfig.editorconfig
+│       │   │       │       ├── Magazzino.Shared.GlobalUsings.g.cs
+│       │   │       │       ├── Magazzino.Shared.assets.cache
+│       │   │       │       ├── Magazzino.Shared.csproj.CoreCompileInputs.cache
+│       │   │       │       ├── Magazzino.Shared.csproj.FileListAbsolute.txt
+│       │   │       │       ├── Magazzino.Shared.dll
+│       │   │       │       ├── Magazzino.Shared.pdb
+│       │   │       │       ├── Magazzino.Shared.sourcelink.json
+│       │   │       │       ├── ref
+│       │   │       │       │   └── Magazzino.Shared.dll
+│       │   │       │       └── refint
+│       │   │       │           └── Magazzino.Shared.dll
+│       │   │       ├── Magazzino.Shared.csproj.nuget.dgspec.json
+│       │   │       ├── Magazzino.Shared.csproj.nuget.g.props
+│       │   │       ├── Magazzino.Shared.csproj.nuget.g.targets
+│       │   │       ├── project.assets.json
+│       │   │       ├── project.nuget.cache
+│       │   │       ├── project.packagespec.json
+│       │   │       ├── rider.project.model.nuget.info
+│       │   │       └── rider.project.restore.info
+│       │   └── Magazzino.WebApi
+│       │       ├── Magazzino.WebApi.csproj
+│       │       ├── Magazzino.WebApi.http
+│       │       ├── Program.cs
+│       │       ├── Properties
+│       │       │   └── launchSettings.json
+│       │       ├── appsettings.Development.json
+│       │       ├── appsettings.json
+│       │       ├── bin
+│       │       │   └── Debug
+│       │       │       └── net10.0
+│       │       │           ├── AutoMapper.dll
+│       │       │           ├── Confluent.Kafka.dll
+│       │       │           ├── EventBus.Contracts.dll
+│       │       │           ├── EventBus.Contracts.pdb
+│       │       │           ├── Magazzino.Business.dll
+│       │       │           ├── Magazzino.Business.pdb
+│       │       │           ├── Magazzino.WebApi
+│       │       │           ├── Magazzino.WebApi.deps.json
+│       │       │           ├── Magazzino.WebApi.dll
+│       │       │           ├── Magazzino.WebApi.pdb
+│       │       │           ├── Magazzino.WebApi.runtimeconfig.json
+│       │       │           ├── Magazzino.WebApi.staticwebassets.endpoints.json
+│       │       │           ├── Utility.Kafka.2025.dll
+│       │       │           ├── appsettings.Development.json
+│       │       │           ├── appsettings.json
+│       │       │           └── runtimes
+│       │       │               ├── linux-arm64
+│       │       │               │   └── native
+│       │       │               │       └── librdkafka.so
+│       │       │               ├── linux-x64
+│       │       │               │   └── native
+│       │       │               │       ├── alpine-librdkafka.so
+│       │       │               │       ├── centos8-librdkafka.so
+│       │       │               │       └── librdkafka.so
+│       │       │               ├── osx-arm64
+│       │       │               │   └── native
+│       │       │               │       └── librdkafka.dylib
+│       │       │               ├── osx-x64
+│       │       │               │   └── native
+│       │       │               │       └── librdkafka.dylib
+│       │       │               ├── win-x64
+│       │       │               │   └── native
+│       │       │               │       ├── libcrypto-3-x64.dll
+│       │       │               │       ├── libcurl.dll
+│       │       │               │       ├── librdkafka.dll
+│       │       │               │       ├── librdkafkacpp.dll
+│       │       │               │       ├── libssl-3-x64.dll
+│       │       │               │       ├── msvcp140.dll
+│       │       │               │       ├── vcruntime140.dll
+│       │       │               │       ├── zlib1.dll
+│       │       │               │       └── zstd.dll
+│       │       │               └── win-x86
+│       │       │                   └── native
+│       │       │                       ├── libcrypto-3.dll
+│       │       │                       ├── libcurl.dll
+│       │       │                       ├── librdkafka.dll
+│       │       │                       ├── librdkafkacpp.dll
+│       │       │                       ├── libssl-3.dll
+│       │       │                       ├── msvcp140.dll
+│       │       │                       ├── vcruntime140.dll
+│       │       │                       ├── zlib1.dll
+│       │       │                       └── zstd.dll
+│       │       └── obj
+│       │           ├── Debug
+│       │           │   └── net10.0
+│       │           │       ├── Magazzin.9C064F4B.Up2Date
+│       │           │       ├── Magazzino.WebApi.AssemblyInfo.cs
+│       │           │       ├── Magazzino.WebApi.AssemblyInfoInputs.cache
+│       │           │       ├── Magazzino.WebApi.GeneratedMSBuildEditorConfig.editorconfig
+│       │           │       ├── Magazzino.WebApi.GlobalUsings.g.cs
+│       │           │       ├── Magazzino.WebApi.MvcApplicationPartsAssemblyInfo.cache
+│       │           │       ├── Magazzino.WebApi.assets.cache
+│       │           │       ├── Magazzino.WebApi.csproj.AssemblyReference.cache
+│       │           │       ├── Magazzino.WebApi.csproj.CoreCompileInputs.cache
+│       │           │       ├── Magazzino.WebApi.csproj.FileListAbsolute.txt
+│       │           │       ├── Magazzino.WebApi.dll
+│       │           │       ├── Magazzino.WebApi.genruntimeconfig.cache
+│       │           │       ├── Magazzino.WebApi.pdb
+│       │           │       ├── Magazzino.WebApi.sourcelink.json
+│       │           │       ├── apphost
+│       │           │       ├── ref
+│       │           │       │   └── Magazzino.WebApi.dll
+│       │           │       ├── refint
+│       │           │       │   └── Magazzino.WebApi.dll
+│       │           │       ├── rjsmcshtml.dswa.cache.json
+│       │           │       ├── rjsmrazor.dswa.cache.json
+│       │           │       ├── rpswa.dswa.cache.json
+│       │           │       ├── staticwebassets
+│       │           │       ├── staticwebassets.build.endpoints.json
+│       │           │       ├── staticwebassets.build.json
+│       │           │       ├── staticwebassets.build.json.cache
+│       │           │       └── swae.build.ex.cache
+│       │           ├── Magazzino.WebApi.csproj.nuget.dgspec.json
+│       │           ├── Magazzino.WebApi.csproj.nuget.g.props
+│       │           ├── Magazzino.WebApi.csproj.nuget.g.targets
+│       │           ├── project.assets.json
+│       │           ├── project.nuget.cache
+│       │           ├── project.packagespec.json
+│       │           ├── rider.project.model.nuget.info
+│       │           └── rider.project.restore.info
+│       ├── Ordini
+│       │   ├── Ordini.Business
+│       │   │   ├── Class1.cs
+│       │   │   ├── Domain
+│       │   │   │   └── Ordine.cs
+│       │   │   ├── Interfaces
+│       │   │   │   ├── IOrdineRepository.cs
+│       │   │   │   └── IOrdineService.cs
+│       │   │   ├── Kafka
+│       │   │   │   ├── OrdiniKafkaTopics.cs
+│       │   │   │   └── OrdiniProducerService.cs
+│       │   │   ├── Mapping
+│       │   │   │   └── OrdineMappingProfile.cs
+│       │   │   ├── Ordini.Business.csproj
+│       │   │   ├── Services
+│       │   │   │   └── OrdineService.cs
+│       │   │   ├── Validators
+│       │   │   │   └── CreaOrdineValidator.cs
+│       │   │   ├── bin
+│       │   │   │   └── Debug
+│       │   │   │       └── net10.0
+│       │   │   │           ├── Domain.Common.dll
+│       │   │   │           ├── Domain.Common.pdb
+│       │   │   │           ├── EventBus.Contracts.dll
+│       │   │   │           ├── EventBus.Contracts.pdb
+│       │   │   │           ├── Ordini.Business.deps.json
+│       │   │   │           ├── Ordini.Business.dll
+│       │   │   │           └── Ordini.Business.pdb
+│       │   │   └── obj
+│       │   │       ├── Debug
+│       │   │       │   └── net10.0
+│       │   │       │       ├── Ordini.B.35859D3C.Up2Date
+│       │   │       │       ├── Ordini.Business.AssemblyInfo.cs
+│       │   │       │       ├── Ordini.Business.AssemblyInfoInputs.cache
+│       │   │       │       ├── Ordini.Business.GeneratedMSBuildEditorConfig.editorconfig
+│       │   │       │       ├── Ordini.Business.GlobalUsings.g.cs
+│       │   │       │       ├── Ordini.Business.assets.cache
+│       │   │       │       ├── Ordini.Business.csproj.AssemblyReference.cache
+│       │   │       │       ├── Ordini.Business.csproj.CoreCompileInputs.cache
+│       │   │       │       ├── Ordini.Business.csproj.FileListAbsolute.txt
+│       │   │       │       ├── Ordini.Business.dll
+│       │   │       │       ├── Ordini.Business.pdb
+│       │   │       │       ├── Ordini.Business.sourcelink.json
+│       │   │       │       ├── ref
+│       │   │       │       │   └── Ordini.Business.dll
+│       │   │       │       └── refint
+│       │   │       │           └── Ordini.Business.dll
+│       │   │       ├── Ordini.Business.csproj.nuget.dgspec.json
+│       │   │       ├── Ordini.Business.csproj.nuget.g.props
+│       │   │       ├── Ordini.Business.csproj.nuget.g.targets
+│       │   │       ├── project.assets.json
+│       │   │       ├── project.nuget.cache
+│       │   │       ├── project.packagespec.json
+│       │   │       ├── rider.project.model.nuget.info
+│       │   │       └── rider.project.restore.info
+│       │   ├── Ordini.ClientHttp
+│       │   │   ├── Class1.cs
+│       │   │   ├── IOrdiniClient.cs
+│       │   │   ├── Ordini.ClientHttp.csproj
+│       │   │   ├── OrdiniClient.cs
+│       │   │   ├── ServiceCollectionExtensions.cs
+│       │   │   ├── bin
+│       │   │   │   └── Debug
+│       │   │   │       └── net10.0
+│       │   │   │           ├── Ordini.ClientHttp.deps.json
+│       │   │   │           ├── Ordini.ClientHttp.dll
+│       │   │   │           └── Ordini.ClientHttp.pdb
+│       │   │   └── obj
+│       │   │       ├── Debug
+│       │   │       │   └── net10.0
+│       │   │       │       ├── Ordini.ClientHttp.AssemblyInfo.cs
+│       │   │       │       ├── Ordini.ClientHttp.AssemblyInfoInputs.cache
+│       │   │       │       ├── Ordini.ClientHttp.GeneratedMSBuildEditorConfig.editorconfig
+│       │   │       │       ├── Ordini.ClientHttp.GlobalUsings.g.cs
+│       │   │       │       ├── Ordini.ClientHttp.assets.cache
+│       │   │       │       ├── Ordini.ClientHttp.csproj.CoreCompileInputs.cache
+│       │   │       │       ├── Ordini.ClientHttp.csproj.FileListAbsolute.txt
+│       │   │       │       ├── Ordini.ClientHttp.dll
+│       │   │       │       ├── Ordini.ClientHttp.pdb
+│       │   │       │       ├── Ordini.ClientHttp.sourcelink.json
+│       │   │       │       ├── ref
+│       │   │       │       │   └── Ordini.ClientHttp.dll
+│       │   │       │       └── refint
+│       │   │       │           └── Ordini.ClientHttp.dll
+│       │   │       ├── Ordini.ClientHttp.csproj.nuget.dgspec.json
+│       │   │       ├── Ordini.ClientHttp.csproj.nuget.g.props
+│       │   │       ├── Ordini.ClientHttp.csproj.nuget.g.targets
+│       │   │       ├── project.assets.json
+│       │   │       ├── project.nuget.cache
+│       │   │       ├── project.packagespec.json
+│       │   │       ├── rider.project.model.nuget.info
+│       │   │       └── rider.project.restore.info
+│       │   ├── Ordini.Repository
+│       │   │   ├── Entities
+│       │   │   │   ├── Ordine.cs
+│       │   │   │   └── RigaOrdine.cs
+│       │   │   ├── Interfaces
+│       │   │   ├── Migrations
+│       │   │   │   ├── 20260811104841_InitialCreate.Designer.cs
+│       │   │   │   ├── 20260811104841_InitialCreate.cs
+│       │   │   │   └── OrdiniDbContextModelSnapshot.cs
+│       │   │   ├── Ordini.Repository.csproj
+│       │   │   ├── OrdiniDbContext.cs
+│       │   │   ├── Repositories
+│       │   │   │   └── OrdineRepository.cs
+│       │   │   ├── bin
+│       │   │   │   └── Debug
+│       │   │   │       └── net10.0
+│       │   │   │           ├── Domain.Common.dll
+│       │   │   │           ├── Domain.Common.pdb
+│       │   │   │           ├── EventBus.Contracts.dll
+│       │   │   │           ├── EventBus.Contracts.pdb
+│       │   │   │           ├── Ordini.Business.dll
+│       │   │   │           ├── Ordini.Business.pdb
+│       │   │   │           ├── Ordini.Repository.deps.json
+│       │   │   │           ├── Ordini.Repository.dll
+│       │   │   │           └── Ordini.Repository.pdb
+│       │   │   └── obj
+│       │   │       ├── Debug
+│       │   │       │   └── net10.0
+│       │   │       │       ├── Ordini.R.698077DB.Up2Date
+│       │   │       │       ├── Ordini.Repository.AssemblyInfo.cs
+│       │   │       │       ├── Ordini.Repository.AssemblyInfoInputs.cache
+│       │   │       │       ├── Ordini.Repository.GeneratedMSBuildEditorConfig.editorconfig
+│       │   │       │       ├── Ordini.Repository.GlobalUsings.g.cs
+│       │   │       │       ├── Ordini.Repository.assets.cache
+│       │   │       │       ├── Ordini.Repository.csproj.AssemblyReference.cache
+│       │   │       │       ├── Ordini.Repository.csproj.CoreCompileInputs.cache
+│       │   │       │       ├── Ordini.Repository.csproj.FileListAbsolute.txt
+│       │   │       │       ├── Ordini.Repository.dll
+│       │   │       │       ├── Ordini.Repository.pdb
+│       │   │       │       ├── Ordini.Repository.sourcelink.json
+│       │   │       │       ├── ref
+│       │   │       │       │   └── Ordini.Repository.dll
+│       │   │       │       └── refint
+│       │   │       │           └── Ordini.Repository.dll
+│       │   │       ├── Ordini.Repository.csproj.nuget.dgspec.json
+│       │   │       ├── Ordini.Repository.csproj.nuget.g.props
+│       │   │       ├── Ordini.Repository.csproj.nuget.g.targets
+│       │   │       ├── project.assets.json
+│       │   │       ├── project.nuget.cache
+│       │   │       ├── project.packagespec.json
+│       │   │       ├── rider.project.model.nuget.info
+│       │   │       └── rider.project.restore.info
+│       │   ├── Ordini.Shared
+│       │   │   ├── Class1.cs
+│       │   │   ├── Constants
+│       │   │   │   └── KafkaTopics.cs
+│       │   │   ├── DTOs
+│       │   │   │   ├── CreaOrdineRequest.cs
+│       │   │   │   └── OrdineDto.cs
+│       │   │   ├── Enums
+│       │   │   │   └── StatoOrdine.cs
+│       │   │   ├── Events
+│       │   │   │   ├── OrdineConfermatoEvent.cs
+│       │   │   │   └── OrdineCreatoEvent.cs
+│       │   │   ├── Ordini.Shared.csproj
+│       │   │   ├── bin
+│       │   │   │   └── Debug
+│       │   │   │       └── net10.0
+│       │   │   │           ├── Ordini.Shared.deps.json
+│       │   │   │           ├── Ordini.Shared.dll
+│       │   │   │           └── Ordini.Shared.pdb
+│       │   │   └── obj
+│       │   │       ├── Debug
+│       │   │       │   └── net10.0
+│       │   │       │       ├── Ordini.Shared.AssemblyInfo.cs
+│       │   │       │       ├── Ordini.Shared.AssemblyInfoInputs.cache
+│       │   │       │       ├── Ordini.Shared.GeneratedMSBuildEditorConfig.editorconfig
+│       │   │       │       ├── Ordini.Shared.GlobalUsings.g.cs
+│       │   │       │       ├── Ordini.Shared.assets.cache
+│       │   │       │       ├── Ordini.Shared.csproj.CoreCompileInputs.cache
+│       │   │       │       ├── Ordini.Shared.csproj.FileListAbsolute.txt
+│       │   │       │       ├── Ordini.Shared.dll
+│       │   │       │       ├── Ordini.Shared.pdb
+│       │   │       │       ├── Ordini.Shared.sourcelink.json
+│       │   │       │       ├── ref
+│       │   │       │       │   └── Ordini.Shared.dll
+│       │   │       │       └── refint
+│       │   │       │           └── Ordini.Shared.dll
+│       │   │       ├── Ordini.Shared.csproj.nuget.dgspec.json
+│       │   │       ├── Ordini.Shared.csproj.nuget.g.props
+│       │   │       ├── Ordini.Shared.csproj.nuget.g.targets
+│       │   │       ├── project.assets.json
+│       │   │       ├── project.nuget.cache
+│       │   │       ├── project.packagespec.json
+│       │   │       ├── rider.project.model.nuget.info
+│       │   │       └── rider.project.restore.info
+│       │   └── Ordini.WebApi
+│       │       ├── Consumers
+│       │       │   ├── PagamentoCompletatoConsumer.cs
+│       │       │   └── PagamentoFallitoConsumer.cs
+│       │       ├── Controllers
+│       │       │   └── OrdiniController.cs
+│       │       ├── Dockerfile
+│       │       ├── Ordini.WebApi.csproj
+│       │       ├── Ordini.WebApi.http
+│       │       ├── Program.cs
+│       │       ├── Properties
+│       │       │   └── launchSettings.json
+│       │       ├── appsettings.Development.json
+│       │       ├── appsettings.json
+│       │       ├── bin
+│       │       │   └── Debug
+│       │       │       └── net10.0
+│       │       │           ├── AutoMapper.dll
+│       │       │           ├── BuildHost-net472
+│       │       │           │   ├── Microsoft.Build.Locator.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.exe
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.exe.config
+│       │       │           │   ├── Microsoft.IO.Redist.dll
+│       │       │           │   ├── Newtonsoft.Json.dll
+│       │       │           │   ├── System.Buffers.dll
+│       │       │           │   ├── System.Collections.Immutable.dll
+│       │       │           │   ├── System.CommandLine.dll
+│       │       │           │   ├── System.Memory.dll
+│       │       │           │   ├── System.Numerics.Vectors.dll
+│       │       │           │   ├── System.Runtime.CompilerServices.Unsafe.dll
+│       │       │           │   ├── System.Threading.Tasks.Extensions.dll
+│       │       │           │   ├── cs
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── de
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── es
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── fr
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── it
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── ja
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── ko
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── pl
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── pt-BR
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── ru
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── tr
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── zh-Hans
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   └── zh-Hant
+│       │       │           │       └── System.CommandLine.resources.dll
+│       │       │           ├── BuildHost-netcore
+│       │       │           │   ├── Microsoft.Build.Locator.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.deps.json
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.runtimeconfig.json
+│       │       │           │   ├── Newtonsoft.Json.dll
+│       │       │           │   ├── System.Collections.Immutable.dll
+│       │       │           │   ├── System.CommandLine.dll
+│       │       │           │   ├── cs
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── de
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── es
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── fr
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── it
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── ja
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── ko
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── pl
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── pt-BR
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── ru
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── tr
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   ├── zh-Hans
+│       │       │           │   │   └── System.CommandLine.resources.dll
+│       │       │           │   └── zh-Hant
+│       │       │           │       └── System.CommandLine.resources.dll
+│       │       │           ├── Confluent.Kafka.dll
+│       │       │           ├── Domain.Common.dll
+│       │       │           ├── Domain.Common.pdb
+│       │       │           ├── EventBus.Contracts.dll
+│       │       │           ├── EventBus.Contracts.pdb
+│       │       │           ├── Humanizer.dll
+│       │       │           ├── Microsoft.Build.Framework.dll
+│       │       │           ├── Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+│       │       │           ├── Microsoft.CodeAnalysis.CSharp.dll
+│       │       │           ├── Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll
+│       │       │           ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+│       │       │           ├── Microsoft.CodeAnalysis.Workspaces.dll
+│       │       │           ├── Microsoft.CodeAnalysis.dll
+│       │       │           ├── Microsoft.EntityFrameworkCore.Abstractions.dll
+│       │       │           ├── Microsoft.EntityFrameworkCore.Design.dll
+│       │       │           ├── Microsoft.EntityFrameworkCore.Relational.dll
+│       │       │           ├── Microsoft.EntityFrameworkCore.dll
+│       │       │           ├── Microsoft.Extensions.DependencyModel.dll
+│       │       │           ├── Microsoft.VisualStudio.SolutionPersistence.dll
+│       │       │           ├── Mono.TextTemplating.dll
+│       │       │           ├── Newtonsoft.Json.dll
+│       │       │           ├── Npgsql.EntityFrameworkCore.PostgreSQL.dll
+│       │       │           ├── Npgsql.dll
+│       │       │           ├── Ordini.Business.dll
+│       │       │           ├── Ordini.Business.pdb
+│       │       │           ├── Ordini.Repository.dll
+│       │       │           ├── Ordini.Repository.pdb
+│       │       │           ├── Ordini.WebApi
+│       │       │           ├── Ordini.WebApi.deps.json
+│       │       │           ├── Ordini.WebApi.dll
+│       │       │           ├── Ordini.WebApi.pdb
+│       │       │           ├── Ordini.WebApi.runtimeconfig.json
+│       │       │           ├── Ordini.WebApi.staticwebassets.endpoints.json
+│       │       │           ├── System.CodeDom.dll
+│       │       │           ├── System.Composition.AttributedModel.dll
+│       │       │           ├── System.Composition.Convention.dll
+│       │       │           ├── System.Composition.Hosting.dll
+│       │       │           ├── System.Composition.Runtime.dll
+│       │       │           ├── System.Composition.TypedParts.dll
+│       │       │           ├── Utility.Kafka.2025.dll
+│       │       │           ├── appsettings.Development.json
+│       │       │           ├── appsettings.json
+│       │       │           ├── cs
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│       │       │           │   └── Microsoft.CodeAnalysis.resources.dll
+│       │       │           ├── de
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│       │       │           │   └── Microsoft.CodeAnalysis.resources.dll
+│       │       │           ├── es
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│       │       │           │   └── Microsoft.CodeAnalysis.resources.dll
+│       │       │           ├── fr
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│       │       │           │   └── Microsoft.CodeAnalysis.resources.dll
+│       │       │           ├── it
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│       │       │           │   └── Microsoft.CodeAnalysis.resources.dll
+│       │       │           ├── ja
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│       │       │           │   └── Microsoft.CodeAnalysis.resources.dll
+│       │       │           ├── ko
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│       │       │           │   └── Microsoft.CodeAnalysis.resources.dll
+│       │       │           ├── pl
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│       │       │           │   └── Microsoft.CodeAnalysis.resources.dll
+│       │       │           ├── pt-BR
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│       │       │           │   └── Microsoft.CodeAnalysis.resources.dll
+│       │       │           ├── ru
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│       │       │           │   └── Microsoft.CodeAnalysis.resources.dll
+│       │       │           ├── runtimes
+│       │       │           │   ├── linux-arm64
+│       │       │           │   │   └── native
+│       │       │           │   │       └── librdkafka.so
+│       │       │           │   ├── linux-x64
+│       │       │           │   │   └── native
+│       │       │           │   │       ├── alpine-librdkafka.so
+│       │       │           │   │       ├── centos8-librdkafka.so
+│       │       │           │   │       └── librdkafka.so
+│       │       │           │   ├── osx-arm64
+│       │       │           │   │   └── native
+│       │       │           │   │       └── librdkafka.dylib
+│       │       │           │   ├── osx-x64
+│       │       │           │   │   └── native
+│       │       │           │   │       └── librdkafka.dylib
+│       │       │           │   ├── win-x64
+│       │       │           │   │   └── native
+│       │       │           │   │       ├── libcrypto-3-x64.dll
+│       │       │           │   │       ├── libcurl.dll
+│       │       │           │   │       ├── librdkafka.dll
+│       │       │           │   │       ├── librdkafkacpp.dll
+│       │       │           │   │       ├── libssl-3-x64.dll
+│       │       │           │   │       ├── msvcp140.dll
+│       │       │           │   │       ├── vcruntime140.dll
+│       │       │           │   │       ├── zlib1.dll
+│       │       │           │   │       └── zstd.dll
+│       │       │           │   └── win-x86
+│       │       │           │       └── native
+│       │       │           │           ├── libcrypto-3.dll
+│       │       │           │           ├── libcurl.dll
+│       │       │           │           ├── librdkafka.dll
+│       │       │           │           ├── librdkafkacpp.dll
+│       │       │           │           ├── libssl-3.dll
+│       │       │           │           ├── msvcp140.dll
+│       │       │           │           ├── vcruntime140.dll
+│       │       │           │           ├── zlib1.dll
+│       │       │           │           └── zstd.dll
+│       │       │           ├── tr
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│       │       │           │   └── Microsoft.CodeAnalysis.resources.dll
+│       │       │           ├── zh-Hans
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+│       │       │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│       │       │           │   └── Microsoft.CodeAnalysis.resources.dll
+│       │       │           └── zh-Hant
+│       │       │               ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│       │       │               ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│       │       │               ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+│       │       │               ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│       │       │               └── Microsoft.CodeAnalysis.resources.dll
+│       │       └── obj
+│       │           ├── Debug
+│       │           │   └── net10.0
+│       │           │       ├── Ordini.W.06C56676.Up2Date
+│       │           │       ├── Ordini.WebApi.AssemblyInfo.cs
+│       │           │       ├── Ordini.WebApi.AssemblyInfoInputs.cache
+│       │           │       ├── Ordini.WebApi.GeneratedMSBuildEditorConfig.editorconfig
+│       │           │       ├── Ordini.WebApi.GlobalUsings.g.cs
+│       │           │       ├── Ordini.WebApi.MvcApplicationPartsAssemblyInfo.cache
+│       │           │       ├── Ordini.WebApi.assets.cache
+│       │           │       ├── Ordini.WebApi.csproj.AssemblyReference.cache
+│       │           │       ├── Ordini.WebApi.csproj.CoreCompileInputs.cache
+│       │           │       ├── Ordini.WebApi.csproj.FileListAbsolute.txt
+│       │           │       ├── Ordini.WebApi.dll
+│       │           │       ├── Ordini.WebApi.genruntimeconfig.cache
+│       │           │       ├── Ordini.WebApi.pdb
+│       │           │       ├── Ordini.WebApi.sourcelink.json
+│       │           │       ├── apphost
+│       │           │       ├── ref
+│       │           │       │   └── Ordini.WebApi.dll
+│       │           │       ├── refint
+│       │           │       │   └── Ordini.WebApi.dll
+│       │           │       ├── rjsmcshtml.dswa.cache.json
+│       │           │       ├── rjsmrazor.dswa.cache.json
+│       │           │       ├── rpswa.dswa.cache.json
+│       │           │       ├── staticwebassets
+│       │           │       ├── staticwebassets.build.endpoints.json
+│       │           │       ├── staticwebassets.build.json
+│       │           │       ├── staticwebassets.build.json.cache
+│       │           │       └── swae.build.ex.cache
+│       │           ├── Ordini.WebApi.csproj.nuget.dgspec.json
+│       │           ├── Ordini.WebApi.csproj.nuget.g.props
+│       │           ├── Ordini.WebApi.csproj.nuget.g.targets
+│       │           ├── project.assets.json
+│       │           ├── project.nuget.cache
+│       │           ├── project.packagespec.json
+│       │           ├── rider.project.model.nuget.info
+│       │           └── rider.project.restore.info
+│       ├── Pagamenti
+│       │   ├── Pagamenti.Business
+│       │   │   ├── Class1.cs
+│       │   │   ├── Pagamenti.Business.csproj
+│       │   │   ├── bin
+│       │   │   │   └── Debug
+│       │   │   │       └── net10.0
+│       │   │   │           ├── Pagamenti.Business.deps.json
+│       │   │   │           ├── Pagamenti.Business.dll
+│       │   │   │           └── Pagamenti.Business.pdb
+│       │   │   └── obj
+│       │   │       ├── Debug
+│       │   │       │   └── net10.0
+│       │   │       │       ├── Pagamenti.Business.AssemblyInfo.cs
+│       │   │       │       ├── Pagamenti.Business.AssemblyInfoInputs.cache
+│       │   │       │       ├── Pagamenti.Business.GeneratedMSBuildEditorConfig.editorconfig
+│       │   │       │       ├── Pagamenti.Business.GlobalUsings.g.cs
+│       │   │       │       ├── Pagamenti.Business.assets.cache
+│       │   │       │       ├── Pagamenti.Business.csproj.CoreCompileInputs.cache
+│       │   │       │       ├── Pagamenti.Business.csproj.FileListAbsolute.txt
+│       │   │       │       ├── Pagamenti.Business.dll
+│       │   │       │       ├── Pagamenti.Business.pdb
+│       │   │       │       ├── Pagamenti.Business.sourcelink.json
+│       │   │       │       ├── ref
+│       │   │       │       │   └── Pagamenti.Business.dll
+│       │   │       │       └── refint
+│       │   │       │           └── Pagamenti.Business.dll
+│       │   │       ├── Pagamenti.Business.csproj.nuget.dgspec.json
+│       │   │       ├── Pagamenti.Business.csproj.nuget.g.props
+│       │   │       ├── Pagamenti.Business.csproj.nuget.g.targets
+│       │   │       ├── project.assets.json
+│       │   │       ├── project.nuget.cache
+│       │   │       ├── project.packagespec.json
+│       │   │       ├── rider.project.model.nuget.info
+│       │   │       └── rider.project.restore.info
+│       │   ├── Pagamenti.ClientHttp
+│       │   │   ├── Class1.cs
+│       │   │   ├── Pagamenti.ClientHttp.csproj
+│       │   │   ├── bin
+│       │   │   │   └── Debug
+│       │   │   │       └── net10.0
+│       │   │   │           ├── Pagamenti.ClientHttp.deps.json
+│       │   │   │           ├── Pagamenti.ClientHttp.dll
+│       │   │   │           └── Pagamenti.ClientHttp.pdb
+│       │   │   └── obj
+│       │   │       ├── Debug
+│       │   │       │   └── net10.0
+│       │   │       │       ├── Pagamenti.ClientHttp.AssemblyInfo.cs
+│       │   │       │       ├── Pagamenti.ClientHttp.AssemblyInfoInputs.cache
+│       │   │       │       ├── Pagamenti.ClientHttp.GeneratedMSBuildEditorConfig.editorconfig
+│       │   │       │       ├── Pagamenti.ClientHttp.GlobalUsings.g.cs
+│       │   │       │       ├── Pagamenti.ClientHttp.assets.cache
+│       │   │       │       ├── Pagamenti.ClientHttp.csproj.CoreCompileInputs.cache
+│       │   │       │       ├── Pagamenti.ClientHttp.csproj.FileListAbsolute.txt
+│       │   │       │       ├── Pagamenti.ClientHttp.dll
+│       │   │       │       ├── Pagamenti.ClientHttp.pdb
+│       │   │       │       ├── Pagamenti.ClientHttp.sourcelink.json
+│       │   │       │       ├── ref
+│       │   │       │       │   └── Pagamenti.ClientHttp.dll
+│       │   │       │       └── refint
+│       │   │       │           └── Pagamenti.ClientHttp.dll
+│       │   │       ├── Pagamenti.ClientHttp.csproj.nuget.dgspec.json
+│       │   │       ├── Pagamenti.ClientHttp.csproj.nuget.g.props
+│       │   │       ├── Pagamenti.ClientHttp.csproj.nuget.g.targets
+│       │   │       ├── project.assets.json
+│       │   │       ├── project.nuget.cache
+│       │   │       ├── project.packagespec.json
+│       │   │       ├── rider.project.model.nuget.info
+│       │   │       └── rider.project.restore.info
+│       │   ├── Pagamenti.Repository
+│       │   │   ├── Class1.cs
+│       │   │   ├── Pagamenti.Repository.csproj
+│       │   │   ├── bin
+│       │   │   │   └── Debug
+│       │   │   │       └── net10.0
+│       │   │   │           ├── Pagamenti.Repository.deps.json
+│       │   │   │           ├── Pagamenti.Repository.dll
+│       │   │   │           └── Pagamenti.Repository.pdb
+│       │   │   └── obj
+│       │   │       ├── Debug
+│       │   │       │   └── net10.0
+│       │   │       │       ├── Pagamenti.Repository.AssemblyInfo.cs
+│       │   │       │       ├── Pagamenti.Repository.AssemblyInfoInputs.cache
+│       │   │       │       ├── Pagamenti.Repository.GeneratedMSBuildEditorConfig.editorconfig
+│       │   │       │       ├── Pagamenti.Repository.GlobalUsings.g.cs
+│       │   │       │       ├── Pagamenti.Repository.assets.cache
+│       │   │       │       ├── Pagamenti.Repository.csproj.CoreCompileInputs.cache
+│       │   │       │       ├── Pagamenti.Repository.csproj.FileListAbsolute.txt
+│       │   │       │       ├── Pagamenti.Repository.dll
+│       │   │       │       ├── Pagamenti.Repository.pdb
+│       │   │       │       ├── Pagamenti.Repository.sourcelink.json
+│       │   │       │       ├── ref
+│       │   │       │       │   └── Pagamenti.Repository.dll
+│       │   │       │       └── refint
+│       │   │       │           └── Pagamenti.Repository.dll
+│       │   │       ├── Pagamenti.Repository.csproj.nuget.dgspec.json
+│       │   │       ├── Pagamenti.Repository.csproj.nuget.g.props
+│       │   │       ├── Pagamenti.Repository.csproj.nuget.g.targets
+│       │   │       ├── project.assets.json
+│       │   │       ├── project.nuget.cache
+│       │   │       ├── project.packagespec.json
+│       │   │       ├── rider.project.model.nuget.info
+│       │   │       └── rider.project.restore.info
+│       │   ├── Pagamenti.Shared
+│       │   │   ├── Class1.cs
+│       │   │   ├── DTOs
+│       │   │   ├── Pagamenti.Shared.csproj
+│       │   │   ├── bin
+│       │   │   │   └── Debug
+│       │   │   │       └── net10.0
+│       │   │   │           ├── Pagamenti.Shared.deps.json
+│       │   │   │           ├── Pagamenti.Shared.dll
+│       │   │   │           └── Pagamenti.Shared.pdb
+│       │   │   └── obj
+│       │   │       ├── Debug
+│       │   │       │   └── net10.0
+│       │   │       │       ├── Pagamenti.Shared.AssemblyInfo.cs
+│       │   │       │       ├── Pagamenti.Shared.AssemblyInfoInputs.cache
+│       │   │       │       ├── Pagamenti.Shared.GeneratedMSBuildEditorConfig.editorconfig
+│       │   │       │       ├── Pagamenti.Shared.GlobalUsings.g.cs
+│       │   │       │       ├── Pagamenti.Shared.assets.cache
+│       │   │       │       ├── Pagamenti.Shared.csproj.CoreCompileInputs.cache
+│       │   │       │       ├── Pagamenti.Shared.csproj.FileListAbsolute.txt
+│       │   │       │       ├── Pagamenti.Shared.dll
+│       │   │       │       ├── Pagamenti.Shared.pdb
+│       │   │       │       ├── Pagamenti.Shared.sourcelink.json
+│       │   │       │       ├── ref
+│       │   │       │       │   └── Pagamenti.Shared.dll
+│       │   │       │       └── refint
+│       │   │       │           └── Pagamenti.Shared.dll
+│       │   │       ├── Pagamenti.Shared.csproj.nuget.dgspec.json
+│       │   │       ├── Pagamenti.Shared.csproj.nuget.g.props
+│       │   │       ├── Pagamenti.Shared.csproj.nuget.g.targets
+│       │   │       ├── project.assets.json
+│       │   │       ├── project.nuget.cache
+│       │   │       ├── project.packagespec.json
+│       │   │       ├── rider.project.model.nuget.info
+│       │   │       └── rider.project.restore.info
+│       │   └── Pagamenti.WebApi
+│       │       ├── Pagamenti.WebApi.csproj
+│       │       ├── Pagamenti.WebApi.http
+│       │       ├── Program.cs
+│       │       ├── Properties
+│       │       │   └── launchSettings.json
+│       │       ├── appsettings.Development.json
+│       │       ├── appsettings.json
+│       │       ├── bin
+│       │       │   └── Debug
+│       │       │       └── net10.0
+│       │       │           ├── Pagamenti.WebApi
+│       │       │           ├── Pagamenti.WebApi.deps.json
+│       │       │           ├── Pagamenti.WebApi.dll
+│       │       │           ├── Pagamenti.WebApi.pdb
+│       │       │           ├── Pagamenti.WebApi.runtimeconfig.json
+│       │       │           ├── Pagamenti.WebApi.staticwebassets.endpoints.json
+│       │       │           ├── appsettings.Development.json
+│       │       │           └── appsettings.json
+│       │       └── obj
+│       │           ├── Debug
+│       │           │   └── net10.0
+│       │           │       ├── Pagamenti.WebApi.AssemblyInfo.cs
+│       │           │       ├── Pagamenti.WebApi.AssemblyInfoInputs.cache
+│       │           │       ├── Pagamenti.WebApi.GeneratedMSBuildEditorConfig.editorconfig
+│       │           │       ├── Pagamenti.WebApi.GlobalUsings.g.cs
+│       │           │       ├── Pagamenti.WebApi.MvcApplicationPartsAssemblyInfo.cache
+│       │           │       ├── Pagamenti.WebApi.assets.cache
+│       │           │       ├── Pagamenti.WebApi.csproj.CoreCompileInputs.cache
+│       │           │       ├── Pagamenti.WebApi.csproj.FileListAbsolute.txt
+│       │           │       ├── Pagamenti.WebApi.dll
+│       │           │       ├── Pagamenti.WebApi.genruntimeconfig.cache
+│       │           │       ├── Pagamenti.WebApi.pdb
+│       │           │       ├── Pagamenti.WebApi.sourcelink.json
+│       │           │       ├── apphost
+│       │           │       ├── ref
+│       │           │       │   └── Pagamenti.WebApi.dll
+│       │           │       ├── refint
+│       │           │       │   └── Pagamenti.WebApi.dll
+│       │           │       ├── rjsmcshtml.dswa.cache.json
+│       │           │       ├── rjsmrazor.dswa.cache.json
+│       │           │       ├── rpswa.dswa.cache.json
+│       │           │       ├── staticwebassets
+│       │           │       ├── staticwebassets.build.endpoints.json
+│       │           │       ├── staticwebassets.build.json
+│       │           │       ├── staticwebassets.build.json.cache
+│       │           │       └── swae.build.ex.cache
+│       │           ├── Pagamenti.WebApi.csproj.nuget.dgspec.json
+│       │           ├── Pagamenti.WebApi.csproj.nuget.g.props
+│       │           ├── Pagamenti.WebApi.csproj.nuget.g.targets
+│       │           ├── project.assets.json
+│       │           ├── project.nuget.cache
+│       │           ├── project.packagespec.json
+│       │           ├── rider.project.model.nuget.info
+│       │           └── rider.project.restore.info
+│       └── Utenti
+│           ├── Utenti.Business
+│           │   ├── Interfaces
+│           │   │   ├── IAuthService.cs
+│           │   │   └── IUtenteQueryService.cs
+│           │   ├── Services
+│           │   │   ├── AuthService.cs
+│           │   │   ├── PasswordHasher.cs
+│           │   │   └── UtenteQueryService.cs
+│           │   ├── Utenti.Business.csproj
+│           │   ├── Validators
+│           │   │   └── RegistrazioneValidator.cs
+│           │   ├── bin
+│           │   │   └── Debug
+│           │   │       └── net10.0
+│           │   │           ├── Common.Auth.dll
+│           │   │           ├── Common.Auth.pdb
+│           │   │           ├── Utenti.Business.deps.json
+│           │   │           ├── Utenti.Business.dll
+│           │   │           ├── Utenti.Business.pdb
+│           │   │           ├── Utenti.Repository.dll
+│           │   │           ├── Utenti.Repository.pdb
+│           │   │           ├── Utenti.Shared.dll
+│           │   │           └── Utenti.Shared.pdb
+│           │   └── obj
+│           │       ├── Debug
+│           │       │   └── net10.0
+│           │       │       ├── Utenti.B.E685E4C5.Up2Date
+│           │       │       ├── Utenti.Business.AssemblyInfo.cs
+│           │       │       ├── Utenti.Business.AssemblyInfoInputs.cache
+│           │       │       ├── Utenti.Business.GeneratedMSBuildEditorConfig.editorconfig
+│           │       │       ├── Utenti.Business.GlobalUsings.g.cs
+│           │       │       ├── Utenti.Business.assets.cache
+│           │       │       ├── Utenti.Business.csproj.AssemblyReference.cache
+│           │       │       ├── Utenti.Business.csproj.CoreCompileInputs.cache
+│           │       │       ├── Utenti.Business.csproj.FileListAbsolute.txt
+│           │       │       ├── Utenti.Business.dll
+│           │       │       ├── Utenti.Business.pdb
+│           │       │       ├── Utenti.Business.sourcelink.json
+│           │       │       ├── ref
+│           │       │       │   └── Utenti.Business.dll
+│           │       │       └── refint
+│           │       │           └── Utenti.Business.dll
+│           │       ├── Utenti.Business.csproj.nuget.dgspec.json
+│           │       ├── Utenti.Business.csproj.nuget.g.props
+│           │       ├── Utenti.Business.csproj.nuget.g.targets
+│           │       ├── project.assets.json
+│           │       ├── project.nuget.cache
+│           │       ├── project.packagespec.json
+│           │       ├── rider.project.model.nuget.info
+│           │       └── rider.project.restore.info
+│           ├── Utenti.ClientHttp
+│           │   ├── Class1.cs
+│           │   ├── IUtentiClient.cs
+│           │   ├── ServiceCollectionExtensions.cs
+│           │   ├── Utenti.ClientHttp.csproj
+│           │   ├── UtentiClient.cs
+│           │   ├── bin
+│           │   │   └── Debug
+│           │   │       └── net10.0
+│           │   │           ├── Utenti.ClientHttp.deps.json
+│           │   │           ├── Utenti.ClientHttp.dll
+│           │   │           └── Utenti.ClientHttp.pdb
+│           │   └── obj
+│           │       ├── Debug
+│           │       │   └── net10.0
+│           │       │       ├── Utenti.ClientHttp.AssemblyInfo.cs
+│           │       │       ├── Utenti.ClientHttp.AssemblyInfoInputs.cache
+│           │       │       ├── Utenti.ClientHttp.GeneratedMSBuildEditorConfig.editorconfig
+│           │       │       ├── Utenti.ClientHttp.GlobalUsings.g.cs
+│           │       │       ├── Utenti.ClientHttp.assets.cache
+│           │       │       ├── Utenti.ClientHttp.csproj.CoreCompileInputs.cache
+│           │       │       ├── Utenti.ClientHttp.csproj.FileListAbsolute.txt
+│           │       │       ├── Utenti.ClientHttp.dll
+│           │       │       ├── Utenti.ClientHttp.pdb
+│           │       │       ├── Utenti.ClientHttp.sourcelink.json
+│           │       │       ├── ref
+│           │       │       │   └── Utenti.ClientHttp.dll
+│           │       │       └── refint
+│           │       │           └── Utenti.ClientHttp.dll
+│           │       ├── Utenti.ClientHttp.csproj.nuget.dgspec.json
+│           │       ├── Utenti.ClientHttp.csproj.nuget.g.props
+│           │       ├── Utenti.ClientHttp.csproj.nuget.g.targets
+│           │       ├── project.assets.json
+│           │       ├── project.nuget.cache
+│           │       ├── project.packagespec.json
+│           │       ├── rider.project.model.nuget.info
+│           │       └── rider.project.restore.info
+│           ├── Utenti.Repository
+│           │   ├── Class1.cs
+│           │   ├── Entities
+│           │   │   └── Utente.cs
+│           │   ├── Migrations
+│           │   │   ├── 20260827091722_InitialCreate.Designer.cs
+│           │   │   ├── 20260827091722_InitialCreate.cs
+│           │   │   └── UtentiDbContextModelSnapshot.cs
+│           │   ├── Repositories
+│           │   │   ├── IUtenteRepository.cs
+│           │   │   └── UtenteRepository.cs
+│           │   ├── Utenti.Repository.csproj
+│           │   ├── UtentiDbContext.cs
+│           │   ├── bin
+│           │   │   └── Debug
+│           │   │       └── net10.0
+│           │   │           ├── Utenti.Repository.deps.json
+│           │   │           ├── Utenti.Repository.dll
+│           │   │           ├── Utenti.Repository.pdb
+│           │   │           ├── Utenti.Repository.runtimeconfig.json
+│           │   │           ├── Utenti.Shared.dll
+│           │   │           └── Utenti.Shared.pdb
+│           │   └── obj
+│           │       ├── Debug
+│           │       │   └── net10.0
+│           │       │       ├── Utenti.R.C55C6DD5.Up2Date
+│           │       │       ├── Utenti.Repository.AssemblyInfo.cs
+│           │       │       ├── Utenti.Repository.AssemblyInfoInputs.cache
+│           │       │       ├── Utenti.Repository.GeneratedMSBuildEditorConfig.editorconfig
+│           │       │       ├── Utenti.Repository.GlobalUsings.g.cs
+│           │       │       ├── Utenti.Repository.assets.cache
+│           │       │       ├── Utenti.Repository.csproj.AssemblyReference.cache
+│           │       │       ├── Utenti.Repository.csproj.CoreCompileInputs.cache
+│           │       │       ├── Utenti.Repository.csproj.FileListAbsolute.txt
+│           │       │       ├── Utenti.Repository.dll
+│           │       │       ├── Utenti.Repository.genruntimeconfig.cache
+│           │       │       ├── Utenti.Repository.pdb
+│           │       │       ├── Utenti.Repository.sourcelink.json
+│           │       │       ├── ref
+│           │       │       │   └── Utenti.Repository.dll
+│           │       │       └── refint
+│           │       │           └── Utenti.Repository.dll
+│           │       ├── Utenti.Repository.csproj.nuget.dgspec.json
+│           │       ├── Utenti.Repository.csproj.nuget.g.props
+│           │       ├── Utenti.Repository.csproj.nuget.g.targets
+│           │       ├── project.assets.json
+│           │       ├── project.nuget.cache
+│           │       ├── project.packagespec.json
+│           │       ├── rider.project.model.nuget.info
+│           │       └── rider.project.restore.info
+│           ├── Utenti.Shared
+│           │   ├── Class1.cs
+│           │   ├── DTOs
+│           │   │   ├── LoginRequest.cs
+│           │   │   ├── LoginResponse.cs
+│           │   │   ├── RegistrazioneRequest.cs
+│           │   │   └── UtenteDto.cs
+│           │   ├── Enums
+│           │   │   └── RuoloUtente.cs
+│           │   ├── Utenti.Shared.csproj
+│           │   ├── bin
+│           │   │   └── Debug
+│           │   │       └── net10.0
+│           │   │           ├── Utenti.Shared.deps.json
+│           │   │           ├── Utenti.Shared.dll
+│           │   │           └── Utenti.Shared.pdb
+│           │   └── obj
+│           │       ├── Debug
+│           │       │   └── net10.0
+│           │       │       ├── Utenti.Shared.AssemblyInfo.cs
+│           │       │       ├── Utenti.Shared.AssemblyInfoInputs.cache
+│           │       │       ├── Utenti.Shared.GeneratedMSBuildEditorConfig.editorconfig
+│           │       │       ├── Utenti.Shared.GlobalUsings.g.cs
+│           │       │       ├── Utenti.Shared.assets.cache
+│           │       │       ├── Utenti.Shared.csproj.CoreCompileInputs.cache
+│           │       │       ├── Utenti.Shared.csproj.FileListAbsolute.txt
+│           │       │       ├── Utenti.Shared.dll
+│           │       │       ├── Utenti.Shared.pdb
+│           │       │       ├── Utenti.Shared.sourcelink.json
+│           │       │       ├── ref
+│           │       │       │   └── Utenti.Shared.dll
+│           │       │       └── refint
+│           │       │           └── Utenti.Shared.dll
+│           │       ├── Utenti.Shared.csproj.nuget.dgspec.json
+│           │       ├── Utenti.Shared.csproj.nuget.g.props
+│           │       ├── Utenti.Shared.csproj.nuget.g.targets
+│           │       ├── project.assets.json
+│           │       ├── project.nuget.cache
+│           │       ├── project.packagespec.json
+│           │       ├── rider.project.model.nuget.info
+│           │       └── rider.project.restore.info
+│           └── Utenti.WebApi
+│               ├── Controllers
+│               │   ├── AuthController.cs
+│               │   └── ProfiloController.cs
+│               ├── Dockerfile
+│               ├── Program.cs
+│               ├── Properties
+│               │   └── launchSettings.json
+│               ├── Utenti.WebApi.csproj
+│               ├── Utenti.WebApi.http
+│               ├── appsettings.Development.json
+│               ├── appsettings.json
+│               ├── bin
+│               │   └── Debug
+│               │       └── net10.0
+│               │           ├── Common.Auth.dll
+│               │           ├── Common.Auth.pdb
+│               │           ├── Humanizer.dll
+│               │           ├── Microsoft.AspNetCore.Authentication.JwtBearer.dll
+│               │           ├── Microsoft.Bcl.AsyncInterfaces.dll
+│               │           ├── Microsoft.Build.Locator.dll
+│               │           ├── Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+│               │           ├── Microsoft.CodeAnalysis.CSharp.dll
+│               │           ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+│               │           ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+│               │           ├── Microsoft.CodeAnalysis.Workspaces.dll
+│               │           ├── Microsoft.CodeAnalysis.dll
+│               │           ├── Microsoft.EntityFrameworkCore.Abstractions.dll
+│               │           ├── Microsoft.EntityFrameworkCore.Design.dll
+│               │           ├── Microsoft.EntityFrameworkCore.Relational.dll
+│               │           ├── Microsoft.EntityFrameworkCore.dll
+│               │           ├── Microsoft.Extensions.DependencyModel.dll
+│               │           ├── Microsoft.IdentityModel.Abstractions.dll
+│               │           ├── Microsoft.IdentityModel.JsonWebTokens.dll
+│               │           ├── Microsoft.IdentityModel.Logging.dll
+│               │           ├── Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+│               │           ├── Microsoft.IdentityModel.Protocols.dll
+│               │           ├── Microsoft.IdentityModel.Tokens.dll
+│               │           ├── Mono.TextTemplating.dll
+│               │           ├── Npgsql.EntityFrameworkCore.PostgreSQL.dll
+│               │           ├── Npgsql.dll
+│               │           ├── System.CodeDom.dll
+│               │           ├── System.Composition.AttributedModel.dll
+│               │           ├── System.Composition.Convention.dll
+│               │           ├── System.Composition.Hosting.dll
+│               │           ├── System.Composition.Runtime.dll
+│               │           ├── System.Composition.TypedParts.dll
+│               │           ├── System.IdentityModel.Tokens.Jwt.dll
+│               │           ├── Utenti.Business.dll
+│               │           ├── Utenti.Business.pdb
+│               │           ├── Utenti.Repository.dll
+│               │           ├── Utenti.Repository.pdb
+│               │           ├── Utenti.Shared.dll
+│               │           ├── Utenti.Shared.pdb
+│               │           ├── Utenti.WebApi
+│               │           ├── Utenti.WebApi.deps.json
+│               │           ├── Utenti.WebApi.dll
+│               │           ├── Utenti.WebApi.pdb
+│               │           ├── Utenti.WebApi.runtimeconfig.json
+│               │           ├── Utenti.WebApi.staticwebassets.endpoints.json
+│               │           ├── appsettings.Development.json
+│               │           ├── appsettings.json
+│               │           ├── cs
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│               │           │   └── Microsoft.CodeAnalysis.resources.dll
+│               │           ├── de
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│               │           │   └── Microsoft.CodeAnalysis.resources.dll
+│               │           ├── es
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│               │           │   └── Microsoft.CodeAnalysis.resources.dll
+│               │           ├── fr
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│               │           │   └── Microsoft.CodeAnalysis.resources.dll
+│               │           ├── it
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│               │           │   └── Microsoft.CodeAnalysis.resources.dll
+│               │           ├── ja
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│               │           │   └── Microsoft.CodeAnalysis.resources.dll
+│               │           ├── ko
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│               │           │   └── Microsoft.CodeAnalysis.resources.dll
+│               │           ├── pl
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│               │           │   └── Microsoft.CodeAnalysis.resources.dll
+│               │           ├── pt-BR
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│               │           │   └── Microsoft.CodeAnalysis.resources.dll
+│               │           ├── ru
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│               │           │   └── Microsoft.CodeAnalysis.resources.dll
+│               │           ├── tr
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│               │           │   └── Microsoft.CodeAnalysis.resources.dll
+│               │           ├── zh-Hans
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+│               │           │   ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│               │           │   └── Microsoft.CodeAnalysis.resources.dll
+│               │           └── zh-Hant
+│               │               ├── Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+│               │               ├── Microsoft.CodeAnalysis.CSharp.resources.dll
+│               │               ├── Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+│               │               ├── Microsoft.CodeAnalysis.Workspaces.resources.dll
+│               │               └── Microsoft.CodeAnalysis.resources.dll
+│               └── obj
+│                   ├── Debug
+│                   │   └── net10.0
+│                   │       ├── Utenti.W.240BB8E7.Up2Date
+│                   │       ├── Utenti.WebApi.AssemblyInfo.cs
+│                   │       ├── Utenti.WebApi.AssemblyInfoInputs.cache
+│                   │       ├── Utenti.WebApi.GeneratedMSBuildEditorConfig.editorconfig
+│                   │       ├── Utenti.WebApi.GlobalUsings.g.cs
+│                   │       ├── Utenti.WebApi.MvcApplicationPartsAssemblyInfo.cache
+│                   │       ├── Utenti.WebApi.assets.cache
+│                   │       ├── Utenti.WebApi.csproj.AssemblyReference.cache
+│                   │       ├── Utenti.WebApi.csproj.CoreCompileInputs.cache
+│                   │       ├── Utenti.WebApi.csproj.FileListAbsolute.txt
+│                   │       ├── Utenti.WebApi.dll
+│                   │       ├── Utenti.WebApi.genruntimeconfig.cache
+│                   │       ├── Utenti.WebApi.pdb
+│                   │       ├── Utenti.WebApi.sourcelink.json
+│                   │       ├── apphost
+│                   │       ├── ref
+│                   │       │   └── Utenti.WebApi.dll
+│                   │       ├── refint
+│                   │       │   └── Utenti.WebApi.dll
+│                   │       ├── rjsmcshtml.dswa.cache.json
+│                   │       ├── rjsmrazor.dswa.cache.json
+│                   │       ├── rpswa.dswa.cache.json
+│                   │       ├── staticwebassets
+│                   │       ├── staticwebassets.build.endpoints.json
+│                   │       ├── staticwebassets.build.json
+│                   │       ├── staticwebassets.build.json.cache
+│                   │       └── swae.build.ex.cache
+│                   ├── Utenti.WebApi.csproj.nuget.dgspec.json
+│                   ├── Utenti.WebApi.csproj.nuget.g.props
+│                   ├── Utenti.WebApi.csproj.nuget.g.targets
+│                   ├── project.assets.json
+│                   ├── project.nuget.cache
+│                   ├── project.packagespec.json
+│                   ├── rider.project.model.nuget.info
+│                   └── rider.project.restore.info
+├── start.sh
+└── tree.txt
+
+406 directories, 1275 files

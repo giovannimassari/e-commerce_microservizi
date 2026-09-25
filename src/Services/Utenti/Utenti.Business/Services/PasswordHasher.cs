@@ -21,9 +21,7 @@ public class PasswordHasher
     {
         var parti = passwordHash.Split('.');
         if (parti.Length != 2)
-        {
             return false;
-        }
 
         var salt = Convert.FromBase64String(parti[0]);
         var hash = Convert.FromBase64String(parti[1]);

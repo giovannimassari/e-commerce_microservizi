@@ -38,7 +38,7 @@ public class UtentiDbContext : DbContext
                 .IsRequired();
 
             entity.Property(u => u.Ruolo)
-                .HasConversion<string>()
+                .HasConversion<string>()    // salva il nome dell'enum invece che il valore (Salva "cliente", non 0)
                 .HasMaxLength(50)
                 .IsRequired();
 

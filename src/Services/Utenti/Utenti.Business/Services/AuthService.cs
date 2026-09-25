@@ -44,11 +44,15 @@ public class AuthService : IAuthService
     public async Task<LoginResponse> LoginAsync(LoginRequest request)
     {
         var utente = await _utenteRepository.GetByEmailAsync(request.Email);
+        
+        if(utente is null)
+            throw new UnauthorizedAccessException("Non esiste nessun utente con questa email.");
+        
+        if(!utente.Attivo)
+            throw new UnauthorizedAccessException("Questo utente non è più attivo.");
 
-        if (utente is null || !utente.Attivo || !_passwordHasher.VerifyPassword(request.Password, utente.PasswordHash))
-        {
-            throw new UnauthorizedAccessException("Credenziali non valide.");
-        }
+        if (!_passwordHasher.VerifyPassword(request.Password, utente.PasswordHash))
+            throw new UnauthorizedAccessException("Password errata.");
 
         var token = _tokenGenerator.GeneraToken(utente.Id, utente.Email, utente.Ruolo.ToString());
 
