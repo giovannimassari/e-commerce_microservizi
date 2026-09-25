@@ -75,9 +75,9 @@ Librerie cross-cutting utilizzate da tutti i microservizi per garantire uniformi
 - `Entity.cs`: Classe base astratta per tutte le entità di dominio (gestione ID, uguaglianza, eventi di dominio).
 
 
-* **`EventBus.Contracts`**: Libreria dei contratti per la messaggistica asincrona.
-* `IntegrationEvent.cs`: Interfaccia o classe base per tutti gli eventi pubblicati sul message broker.
-* `Events/OrderCreatedEvent.cs`: Contratto specifico dell'evento scatenato alla creazione di un nuovo ordine.
+- `EventBus.Contracts`: Libreria dei contratti per la messaggistica asincrona.
+- `IntegrationEvent.cs`: Interfaccia o classe base per tutti gli eventi pubblicati sul message broker.
+- `Events/OrderCreatedEvent.cs`: Contratto specifico dell'evento scatenato alla creazione di un nuovo ordine.
 
 
 
@@ -87,9 +87,9 @@ Librerie cross-cutting utilizzate da tutti i microservizi per garantire uniformi
 
 Gestisce la fornitura dei prodotti e il riassortimento.
 
-* **`Approvvigionamento.WebApi`**: Punto di ingresso HTTP e host del servizio. Contiene il `Program.cs`, il `Dockerfile` per la containerizzazione, e i controller REST (`Controllers/ForniturePasController.cs`). Include anche i worker in background (`Consumers/ScortaBassaConsumer.cs`) che ascoltano Kafka.
-* **`Approvvigionamento.Business`**: Contiene la logica applicativa principale, orchestrando le operazioni di fornitura tramite `Services/FornituraService.cs`.
-* **`Approvvigionamento.Repository`**: Strato di accesso ai dati basato su Entity Framework Core. Contiene il contesto del database (`ApprovvigionamentoDbContext.cs`) e i modelli fisici delle tabelle (`Entities/Fornitura.cs`, `Entities/RichiestaRifornimento.cs`).
+- `Approvvigionamento.WebApi`: Punto di ingresso HTTP e host del servizio. Contiene il `Program.cs`, il `Dockerfile` per la containerizzazione, e i controller REST (`Controllers/ForniturePasController.cs`). Include anche i worker in background (`Consumers/ScortaBassaConsumer.cs`) che ascoltano Kafka.
+- `Approvvigionamento.Business`: Contiene la logica applicativa principale, orchestrando le operazioni di fornitura tramite `Services/FornituraService.cs`.
+- `Approvvigionamento.Repository`: Strato di accesso ai dati basato su Entity Framework Core. Contiene il contesto del database (`ApprovvigionamentoDbContext.cs`) e i modelli fisici delle tabelle (`Entities/Fornitura.cs`, `Entities/RichiestaRifornimento.cs`).
 * **`Approvvigionamento.Shared`**: Libreria contrattuale interna. Contiene gli oggetti di trasferimento dati (cartella `DTOs`) e gli eventi generati o utilizzati da questo dominio (`Events/RiassortimentoCompletatoEvent.cs`, `Events/ScortaBassaEvent.cs`).
 * **`Approvvigionamento.ClientHttp`**: Libreria per consentire ad altri microservizi di chiamare sincronicamente l'Approvvigionamento tramite chiamate REST tipizzate.
 
