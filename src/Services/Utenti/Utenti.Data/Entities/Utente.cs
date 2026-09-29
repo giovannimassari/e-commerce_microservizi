@@ -1,6 +1,6 @@
 using Utenti.Shared.Enums;
 
-namespace Utenti.Repository.Entities;
+namespace Utenti.Data.Entities;
 
 public class Utente
 {

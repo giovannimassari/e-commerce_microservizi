@@ -41,6 +41,7 @@
   <Folder Name="/src/Services/Utenti/">
     <Project Path="src/Services/Utenti/Utenti.Business/Utenti.Business.csproj" />
     <Project Path="src/Services/Utenti/Utenti.ClientHttp/Utenti.ClientHttp.csproj" />
+    <Project Path="src/Services/Utenti/Utenti.Data/Utenti.Data.csproj" />
     <Project Path="src/Services/Utenti/Utenti.Repository/Utenti.Repository.csproj" />
     <Project Path="src/Services/Utenti/Utenti.Shared/Utenti.Shared.csproj" />
     <Project Path="src/Services/Utenti/Utenti.WebApi/Utenti.WebApi.csproj" />

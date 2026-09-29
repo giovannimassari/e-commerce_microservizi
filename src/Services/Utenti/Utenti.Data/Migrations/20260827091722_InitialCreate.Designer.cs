@@ -6,10 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Utenti.Repository;
+using Utenti.Data.Context;
 
 #nullable disable
 
-namespace Utenti.Repository.Migrations
+namespace Utenti.Data.Migrations
 {
     [DbContext(typeof(UtentiDbContext))]
     [Migration("20260827091722_InitialCreate")]

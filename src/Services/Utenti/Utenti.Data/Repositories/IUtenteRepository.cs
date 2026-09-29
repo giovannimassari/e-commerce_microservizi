@@ -1,4 +1,4 @@
-using Utenti.Repository.Entities;
+using Utenti.Data.Entities;
 
 namespace Utenti.Repository.Repositories;
 

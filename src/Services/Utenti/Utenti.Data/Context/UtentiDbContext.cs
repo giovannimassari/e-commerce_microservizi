@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using Utenti.Repository.Entities;
 
-namespace Utenti.Repository;
+using Utenti.Data.Entities;
+namespace Utenti.Data.Context;
 
 public class UtentiDbContext : DbContext
 {

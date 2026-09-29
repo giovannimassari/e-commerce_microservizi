@@ -5,6 +5,7 @@ using Common.Auth;
 using Utenti.Business.Interfaces;
 using Utenti.Business.Services;
 using Utenti.Repository.Repositories;
+using Utenti.Data.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 

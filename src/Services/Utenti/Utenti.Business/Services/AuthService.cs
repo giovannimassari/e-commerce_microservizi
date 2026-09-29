@@ -1,6 +1,6 @@
 using Common.Auth;
 using Utenti.Business.Interfaces;
-using Utenti.Repository.Entities;
+using Utenti.Data.Entities;
 using Utenti.Repository.Repositories;
 using Utenti.Shared.DTOs;
 

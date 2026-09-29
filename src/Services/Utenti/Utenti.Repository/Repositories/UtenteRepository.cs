@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using Utenti.Repository.Entities;
+using Utenti.Data.Entities;
+using Utenti.Data.Context;
 
 namespace Utenti.Repository.Repositories;
-
 public class UtenteRepository : IUtenteRepository
 {
     private readonly UtentiDbContext _context;

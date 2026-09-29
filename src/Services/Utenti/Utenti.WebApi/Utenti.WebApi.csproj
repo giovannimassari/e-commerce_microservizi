@@ -5,6 +5,7 @@
     <ProjectReference Include="..\Utenti.Business\Utenti.Business.csproj" />
     <ProjectReference Include="..\Utenti.Shared\Utenti.Shared.csproj" />
     <ProjectReference Include="..\..\..\BuildingBlocks\Common.Auth\Common.Auth.csproj" />
+    <ProjectReference Include="..\Utenti.Data\Utenti.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>
