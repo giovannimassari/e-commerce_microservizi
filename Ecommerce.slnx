@@ -1,14 +1,14 @@
-<Solution>
-  <Folder Name="/Solution Items/" />
-  <Folder Name="/src/" />
-  <Folder Name="/src/BuildingBlocks/">
-    <Project Path="src/BuildingBlocks/Common.Auth/Common.Auth.csproj" />
-    <Project Path="src/BuildingBlocks/Domain.Common/Domain.Common.csproj" />
-    <Project Path="src/BuildingBlocks/EventBus.Contracts/EventBus.Contracts.csproj" />
-  </Folder>
-  <Folder Name="/src/Gateway/">
-    <Project Path="src/Gateway/Ecommerce.Gateway/Ecommerce.Gateway.csproj" />
-  </Folder>
+  <Solution>
+    <Folder Name="/Solution Items/" />
+    <Folder Name="/src/" />
+    <Folder Name="/src/BuildingBlocks/">
+      <Project Path="src/BuildingBlocks/Common.Auth/Common.Auth.csproj" />
+      <Project Path="src/BuildingBlocks/Domain.Common/Domain.Common.csproj" />
+      <Project Path="src/BuildingBlocks/EventBus.Contracts/EventBus.Contracts.csproj" />
+    </Folder>
+    <Folder Name="/src/Gateway/">
+      <Project Path="src/Gateway/Ecommerce.Gateway/Ecommerce.Gateway.csproj" />
+    </Folder>
   <Folder Name="/src/Services/" />
   <Folder Name="/src/Services/Approvvigionamento/">
     <Project Path="src/Services/Approvvigionamento/Approvvigionamento.Business/Approvvigionamento.Business.csproj" />
@@ -20,6 +20,7 @@
   <Folder Name="/src/Services/Magazzino/">
     <Project Path="src/Services/Magazzino/Magazzino.Business/Magazzino.Business.csproj" />
     <Project Path="src/Services/Magazzino/Magazzino.ClientHttp/Magazzino.ClientHttp.csproj" />
+      <Project Path="src/Services/Magazzino/Magazzino.Data/Magazzino.Data.csproj" />
     <Project Path="src/Services/Magazzino/Magazzino.Repository/Magazzino.Repository.csproj" />
     <Project Path="src/Services/Magazzino/Magazzino.Shared/Magazzino.Shared.csproj" />
     <Project Path="src/Services/Magazzino/Magazzino.WebApi/Magazzino.WebApi.csproj" />

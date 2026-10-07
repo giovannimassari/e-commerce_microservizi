@@ -3,9 +3,12 @@ using EventBus.Contracts.Events;
 using Microsoft.Extensions.Logging;
 using Utility.Kafka.Abstractions.MessageHandlers;
 
+using Magazzino.Business.Repositories;
+
 namespace Magazzino.Business.Kafka;
 
-public class OrdineCreatoHandler(ILogger<OrdineCreatoHandler> logger) : IMessageHandler<string, string>
+public class OrdineCreatoHandler(ILogger<OrdineCreatoHandler> logger, 
+                                 IStockRepository stockRepository) : IMessageHandler<string, string>
 {
     public async Task OnMessageReceivedAsync(string key, string message, CancellationToken cancellationToken = default)
     {
@@ -22,6 +25,9 @@ public class OrdineCreatoHandler(ILogger<OrdineCreatoHandler> logger) : IMessage
         // TODO: qui la logica reale di riserva stock, es.:
         // foreach (var item in evento.Items)
         //     await stockRepository.ReserveAsync(item.ProductId, item.Quantity, cancellationToken);
+        
+        foreach (var item in evento.Items)
+            await stockRepository.ReserveAsync(item.ProductId, item.Quantity, cancellationToken);
 
         await Task.CompletedTask;
     }

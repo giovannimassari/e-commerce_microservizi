@@ -30,6 +30,32 @@ services:
     volumes:
       - kafka_data:/var/lib/kafka/data
 
+  utenti-webapi:
+    build:
+      context: .
+      dockerfile: src/Services/Utenti/Utenti.WebApi/Dockerfile
+      args:
+        GITHUB_TOKEN: ${GITHUB_TOKEN}
+    container_name: ecommerce-utenti-webapi
+    ports:
+      - "5142:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__UtentiDb: "Host=postgres;Port=5432;Database=utenti_db;Username=postgres;Password=postgres"
+      JwtSettings__Secret: "una-chiave-segreta-lunga-almeno-32-caratteri-cambiala"
+      JwtSettings__Issuer: "Ecommerce.Utenti"
+      JwtSettings__Audience: "Ecommerce"
+      JwtSettings__ExpirationMinutes: "60"
+      Kafka__Enable: "true"
+      Kafka__AdminClient__BootstrapServers: "kafka:9092"
+      Kafka__ProducerClient__BootstrapServers: "kafka:9092"
+      Kafka__ProducerService__DelaySeconds: "10"
+      Kafka__ProducerService__IntervalSeconds: "60"
+      Kafka__Topics__UtenteRegistrato: "UtenteRegistrato"
+    depends_on:
+      - postgres
+      - kafka
+
 volumes:
   postgres_data:
   kafka_data:

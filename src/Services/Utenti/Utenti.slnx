@@ -1,0 +1,11 @@
+<Solution>
+    <Folder Name="/Solution Items/" />
+    <Folder Name="/Utenti/">
+        <Project Path="Utenti.Business/Utenti.Business.csproj" />
+        <Project Path="Utenti.ClientHttp/Utenti.ClientHttp.csproj" />
+        <Project Path="Utenti.Data/Utenti.Data.csproj" />
+        <Project Path="Utenti.Repository/Utenti.Repository.csproj" />
+        <Project Path="Utenti.Shared/Utenti.Shared.csproj" />
+        <Project Path="Utenti.WebApi/Utenti.WebApi.csproj" />
+    </Folder>
+</Solution>
