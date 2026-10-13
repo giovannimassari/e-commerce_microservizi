@@ -1,4 +1,8 @@
 using Magazzino.Business.Kafka;
+using Magazzino.Business.Repositories;
+using Magazzino.Repository.Repositories;
+using Magazzino.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +10,11 @@ builder.Services.AddScoped<OrdineCreatoHandler>();
 
 builder.Services.AddKafkaConsumerService<MagazzinoKafkaTopics, MagazzinoMessageHandlerFactory>(
     builder.Configuration);
+
+builder.Services.AddDbContext<MagazzinoDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("MagazzinoDb")));
+
+builder.Services.AddScoped<IStockRepository, StockRepository>();
 
 // Add services to the container.
 
