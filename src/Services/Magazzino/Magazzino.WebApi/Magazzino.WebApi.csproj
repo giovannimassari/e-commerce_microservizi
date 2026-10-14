@@ -4,6 +4,7 @@
     <ProjectReference Include="..\Magazzino.Business\Magazzino.Business.csproj" />
     <ProjectReference Include="..\Magazzino.Repository\Magazzino.Repository.csproj" />
     <ProjectReference Include="..\Magazzino.Data\Magazzino.Data.csproj" />
+    <ProjectReference Include="..\Magazzino.Shared\Magazzino.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

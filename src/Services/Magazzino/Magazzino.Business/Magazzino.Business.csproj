@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\BuildingBlocks\EventBus.Contracts\EventBus.Contracts.csproj" />
     <ProjectReference Include="..\Magazzino.Data\Magazzino.Data.csproj" />
+    <ProjectReference Include="..\Magazzino.Shared\Magazzino.Shared.csproj" />
   </ItemGroup>
 
 </Project>

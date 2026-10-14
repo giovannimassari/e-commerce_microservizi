@@ -19,6 +19,25 @@ public class StockRepository : IStockRepository
         return await _context.Stocks.FindAsync(new object[] { productId }, cancellationToken);
     }
 
+    public async Task<List<Stock>> GetAllAsync(CancellationToken cancellationToken = default)
+    {
+        return await _context.Stocks
+            .OrderBy(s => s.ProductId)
+            .ToListAsync(cancellationToken);
+    }
+
+    public async Task AddAsync(Stock stock, CancellationToken cancellationToken = default)
+    {
+        await _context.Stocks.AddAsync(stock, cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
+    }
+
+    public async Task UpdateAsync(Stock stock, CancellationToken cancellationToken = default)
+    {
+        _context.Stocks.Update(stock);
+        await _context.SaveChangesAsync(cancellationToken);
+    }
+
     public async Task ReserveAsync(Guid productId, int quantityRequest, CancellationToken cancellationToken = default)
     {
         var stock = await _context.Stocks.FindAsync(new object[] { productId }, cancellationToken);
