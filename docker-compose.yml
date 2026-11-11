@@ -157,8 +157,12 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
       # In container "localhost" non è il servizio Utenti: sovrascrivo gli indirizzi del file appsettings.json
       ReverseProxy__Clusters__utenti-cluster__Destinations__utenti-destination__Address: "http://utenti-webapi:8080"
+      ReverseProxy__Clusters__magazzino-cluster__Destinations__magazzino-destination__Address: "http://magazzino-webapi:8080"
+      ReverseProxy__Clusters__ordini-cluster__Destinations__ordini-destination__Address: "http://ordini-webapi:8080"
     depends_on:
       - utenti-webapi
+      - magazzino-webapi
+      - ordini-webapi
 
   frontend:
     build:
