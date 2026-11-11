@@ -29,6 +29,12 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
+using (var scope = app.Services.CreateScope()) {
+    scope.ServiceProvider.GetRequiredService<UtentiDbContext>().Database.Migrate();
+}
+
+app.UseAuthentication();
+
 // Configure the HTTP request pipeline.
 
 app.UseHttpsRedirection();

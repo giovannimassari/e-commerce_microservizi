@@ -25,6 +25,12 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope()) {
+    scope.ServiceProvider.GetRequiredService<MagazzinoDbContext>().Database.Migrate();
+}
+
+app.UseHttpsRedirection();
+
 app.UseHttpsRedirection();
 
 app.MapControllers();
