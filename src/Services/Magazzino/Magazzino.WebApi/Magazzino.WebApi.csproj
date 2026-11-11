@@ -5,6 +5,7 @@
     <ProjectReference Include="..\Magazzino.Repository\Magazzino.Repository.csproj" />
     <ProjectReference Include="..\Magazzino.Data\Magazzino.Data.csproj" />
     <ProjectReference Include="..\Magazzino.Shared\Magazzino.Shared.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\Common.Auth\Common.Auth.csproj" />
   </ItemGroup>
 
   <ItemGroup>

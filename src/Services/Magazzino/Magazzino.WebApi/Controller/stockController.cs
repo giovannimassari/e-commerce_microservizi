@@ -1,10 +1,12 @@
 using Magazzino.Business.Services;
 using Magazzino.Shared.DTOs;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Magazzino.WebApi.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("api/[controller]")]
 public class StockController(IStockService stockService) : ControllerBase
 {

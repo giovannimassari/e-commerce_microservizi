@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Ordini.Business.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Ordini.WebApi.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("api/[controller]")]
 public class OrdiniController(IOrdineService ordineService) : ControllerBase
 {

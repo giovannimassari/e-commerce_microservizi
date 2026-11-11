@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Ordini.Business\Ordini.Business.csproj" />
     <ProjectReference Include="..\Ordini.Repository\Ordini.Repository.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\Common.Auth\Common.Auth.csproj" />
   </ItemGroup>
 
   <ItemGroup>

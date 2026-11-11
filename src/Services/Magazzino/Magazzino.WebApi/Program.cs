@@ -1,3 +1,4 @@
+using Common.Auth;
 using Magazzino.Business.Kafka;
 using Magazzino.Business.Repositories;
 using Magazzino.Business.Services;
@@ -23,6 +24,8 @@ builder.Services.AddScoped<IStockService, StockService>();
 // Controllers
 builder.Services.AddControllers();
 
+builder.Services.AddJwtAuthentication(builder.Configuration);
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope()) {
@@ -32,6 +35,9 @@ using (var scope = app.Services.CreateScope()) {
 app.UseHttpsRedirection();
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 

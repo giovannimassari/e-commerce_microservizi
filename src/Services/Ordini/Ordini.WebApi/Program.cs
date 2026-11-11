@@ -1,3 +1,4 @@
+using Common.Auth;
 using Ordini.Business.Kafka;
 
 using Ordini.Repository;
@@ -19,6 +20,8 @@ builder.Services.AddScoped<IOrdineService, OrdineService>();
 
 builder.Services.AddControllers();
 
+builder.Services.AddJwtAuthentication(builder.Configuration);
+
 // Add services to the container.
 
 var app = builder.Build();
@@ -28,6 +31,9 @@ using (var scope = app.Services.CreateScope()) {
 }
 
 // Configure the HTTP request pipeline.
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 

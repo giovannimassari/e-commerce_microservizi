@@ -92,6 +92,9 @@ services:
       Kafka__ProducerClient__BootstrapServers: "kafka:29092"
       Kafka__ConsumerClient__BootstrapServers: "kafka:29092"
       Kafka__ConsumerClient__GroupId: "magazzino-consumer-group"
+      JwtSettings__Secret: ${JWT_SECRET:-una-chiave-segreta-lunga-almeno-32-caratteri-cambiala}
+      JwtSettings__Issuer: "Ecommerce.Utenti"
+      JwtSettings__Audience: "Ecommerce"
     depends_on:
       postgres:
         condition: service_healthy
@@ -115,6 +118,9 @@ services:
       Kafka__ProducerClient__BootstrapServers: "kafka:29092"
       Kafka__ProducerService__DelaySeconds: "5"
       Kafka__ProducerService__IntervalSeconds: "30"
+      JwtSettings__Secret: ${JWT_SECRET:-una-chiave-segreta-lunga-almeno-32-caratteri-cambiala}
+      JwtSettings__Issuer: "Ecommerce.Utenti"
+      JwtSettings__Audience: "Ecommerce"
     depends_on:
       postgres:
         condition: service_healthy

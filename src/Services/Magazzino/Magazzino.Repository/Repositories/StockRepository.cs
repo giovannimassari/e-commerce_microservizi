@@ -56,6 +56,7 @@ public class StockRepository : IStockRepository
         }
 
         stock.QuantitaDisponibile -= quantityRequest;
+        stock.QuantitaRiservata += quantityRequest;
         stock.UltimoAggiornamento = DateTime.UtcNow;
 
         // NOTA: in caso di accessi concorrenti sullo stesso prodotto, questo non basta
