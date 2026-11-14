@@ -11,6 +11,9 @@ using Ordini.Repository.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddKafkaProducerService<OrdiniKafkaTopics, OrdiniProducerService>(builder.Configuration);
+builder.Services.AddScoped<PagamentoCompletatoHandler>();
+builder.Services.AddScoped<PagamentoFallitoHandler>();
+builder.Services.AddKafkaConsumerService<OrdiniConsumerKafkaTopics, OrdiniMessageHandlerFactory>(builder.Configuration);
 
 builder.Services.AddDbContext<OrdiniDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("OrdiniDb")));

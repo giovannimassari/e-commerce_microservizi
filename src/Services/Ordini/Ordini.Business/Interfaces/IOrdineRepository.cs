@@ -6,4 +6,5 @@ public interface IOrdineRepository
 {
     Task AddAsync(Ordine ordine, CancellationToken cancellationToken = default);
     Task<Ordine?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
+    Task UpdateAsync(Ordine ordine, CancellationToken cancellationToken = default);
 }

@@ -123,6 +123,8 @@ services:
       JwtSettings__Secret: ${JWT_SECRET:-una-chiave-segreta-lunga-almeno-32-caratteri-cambiala}
       JwtSettings__Issuer: "Ecommerce.Utenti"
       JwtSettings__Audience: "Ecommerce"
+      Kafka__ConsumerClient__BootstrapServers: "kafka:29092"
+      Kafka__ConsumerClient__GroupId: "ordini-consumer-group"
     depends_on:
       postgres:
         condition: service_healthy

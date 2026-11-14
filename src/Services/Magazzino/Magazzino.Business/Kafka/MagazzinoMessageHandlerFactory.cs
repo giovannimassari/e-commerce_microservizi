@@ -10,6 +10,7 @@ public class MagazzinoMessageHandlerFactory : IMessageHandlerFactory<string, str
         return topic switch
         {
             "OrdineCreato" => serviceProvider.GetRequiredService<OrdineCreatoHandler>(),
+            "OrdineAnnullato" => serviceProvider.GetRequiredService<OrdineAnnullatoHandler>(),
             "RiassortimentoCompletato" => serviceProvider.GetRequiredService<RiassortimentoCompletatoHandler>(),
             _ => throw new NotSupportedException($"Nessun handler registrato per il topic '{topic}'")
         };

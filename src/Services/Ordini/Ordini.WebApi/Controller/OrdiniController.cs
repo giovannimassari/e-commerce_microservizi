@@ -20,9 +20,9 @@ public class OrdiniController(IOrdineService ordineService) : ControllerBase
     }
 
     [HttpGet("{id:guid}")]
-    public IActionResult GetById(Guid id)
+    public async Task<IActionResult> GetById(Guid id, CancellationToken cancellationToken)
     {
-        // Placeholder per ora — lo implementiamo se serve leggere l'ordine
-        return Ok(new { id });
+        var ordine = await ordineService.GetByIdAsync(id, cancellationToken);
+        return ordine is null ? NotFound() : Ok(ordine);
     }
 }

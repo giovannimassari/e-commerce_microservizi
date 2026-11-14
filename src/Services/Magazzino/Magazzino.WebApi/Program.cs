@@ -21,6 +21,7 @@ builder.Services.AddDbContext<MagazzinoDbContext>(options =>
 // Repository e Service
 builder.Services.AddScoped<IStockRepository, StockRepository>();
 builder.Services.AddScoped<IStockService, StockService>();
+builder.Services.AddScoped<OrdineAnnullatoHandler>();
 
 // Controllers
 builder.Services.AddControllers();

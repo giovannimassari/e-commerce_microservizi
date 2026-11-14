@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Ordini.Business.Domain;
 using Ordini.Business.Interfaces;
-using Ordini.Repository;
 
 namespace Ordini.Repository.Repositories;
 
@@ -17,4 +16,8 @@ public class OrdineRepository(OrdiniDbContext context) : IOrdineRepository
         => await context.Ordini
             .Include(o => o.Items)
             .FirstOrDefaultAsync(o => o.Id == id, cancellationToken);
+
+    // L'ordine letto con GetByIdAsync è già tracciato dal contesto: basta salvare.
+    public async Task UpdateAsync(Ordine ordine, CancellationToken cancellationToken = default)
+        => await context.SaveChangesAsync(cancellationToken);
 }

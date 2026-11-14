@@ -7,6 +7,8 @@ public class Ordine : Entity
     public Guid CustomerId { get; private set; }
     public decimal TotalAmount { get; private set; }
     public DateTime CreatedAt { get; private set; }
+    public StatoOrdine Stato { get; private set; } = StatoOrdine.InAttesaPagamento;
+    public string? MotivoAnnullamento { get; private set; }
     public List<OrdineItem> Items { get; private set; } = new();
 
     private Ordine() { } // per EF Core
@@ -17,6 +19,27 @@ public class Ordine : Entity
         Items = items;
         TotalAmount = items.Sum(i => i.Quantity * i.UnitPrice);
         CreatedAt = DateTime.UtcNow;
+        Stato = StatoOrdine.InAttesaPagamento;
+    }
+
+    // Restituisce true solo se la transizione è avvenuta: un evento ripetuto non cambia nulla.
+    public bool SegnaComePagato()
+    {
+        if (Stato != StatoOrdine.InAttesaPagamento)
+            return false;
+
+        Stato = StatoOrdine.Pagato;
+        return true;
+    }
+
+    public bool Annulla(string motivo)
+    {
+        if (Stato != StatoOrdine.InAttesaPagamento)
+            return false;
+
+        Stato = StatoOrdine.Annullato;
+        MotivoAnnullamento = motivo;
+        return true;
     }
 }
 
