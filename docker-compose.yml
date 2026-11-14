@@ -153,6 +153,31 @@ services:
         condition: service_healthy
       kafka:
         condition: service_healthy
+        
+  pagamenti-webapi:
+    build:
+      context: .
+      dockerfile: src/Services/Pagamenti/Pagamenti.WebApi/Dockerfile
+      args:
+        GITHUB_TOKEN: ${GITHUB_TOKEN}
+    container_name: ecommerce-pagamenti-webapi
+    ports:
+      - "5186:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__PagamentiDb: "Host=postgres;Port=5432;Database=pagamenti_db;Username=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-postgres}"
+      Kafka__Enable: "true"
+      Kafka__AdminClient__BootstrapServers: "kafka:29092"
+      Kafka__ProducerClient__BootstrapServers: "kafka:29092"
+      Kafka__ConsumerClient__BootstrapServers: "kafka:29092"
+      Kafka__ConsumerClient__GroupId: "pagamenti-consumer-group"
+      Kafka__ProducerService__DelaySeconds: "5"
+      Kafka__ProducerService__IntervalSeconds: "30"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
 
   # ---------------------------------------------------------------- gateway e frontend
   gateway:
@@ -169,6 +194,7 @@ services:
       ReverseProxy__Clusters__magazzino-cluster__Destinations__magazzino-destination__Address: "http://magazzino-webapi:8080"
       ReverseProxy__Clusters__ordini-cluster__Destinations__ordini-destination__Address: "http://ordini-webapi:8080"
       ReverseProxy__Clusters__approvvigionamento-cluster__Destinations__approvvigionamento-destination__Address: "http://approvvigionamento-webapi:8080"
+      ReverseProxy__Clusters__pagamenti-cluster__Destinations__pagamenti-destination__Address: "http://pagamenti-webapi:8080"   
     depends_on:
       - utenti-webapi
       - magazzino-webapi

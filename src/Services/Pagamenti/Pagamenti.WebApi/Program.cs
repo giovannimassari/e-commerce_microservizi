@@ -1,34 +1,34 @@
+using Microsoft.EntityFrameworkCore;
+using Pagamenti.Business.Kafka;
+using Pagamenti.Business.Services;
+using Pagamenti.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Kafka: consumer (OrdineCreato) e producer (PagamentoCompletato / PagamentoFallito)
+builder.Services.AddScoped<OrdineCreatoHandler>();
+builder.Services.AddKafkaConsumerService<PagamentiKafkaTopics, PagamentiMessageHandlerFactory>(
+    builder.Configuration);
+builder.Services.AddKafkaProducerService<PagamentiProducerKafkaTopics, PagamentiProducerService>(
+    builder.Configuration);
+
+// Database
+builder.Services.AddDbContext<PagamentiDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("PagamentiDb")));
+
+// Service
+builder.Services.AddScoped<IPagamentoService, PagamentoService>();
+
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-
-app.UseHttpsRedirection();
-
-var summaries = new[]
+// Crea le tabelle se non esistono. Quando aggiungerai le migrations EF, sostituisci con Database.Migrate().
+using (var scope = app.Services.CreateScope())
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+    scope.ServiceProvider.GetRequiredService<PagamentiDbContext>().Database.EnsureCreated();
+}
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-});
+app.MapControllers();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
