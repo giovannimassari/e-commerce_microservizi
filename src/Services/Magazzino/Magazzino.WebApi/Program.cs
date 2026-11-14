@@ -10,8 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Kafka
 builder.Services.AddScoped<OrdineCreatoHandler>();
-builder.Services.AddKafkaConsumerService<MagazzinoKafkaTopics, MagazzinoMessageHandlerFactory>(
-    builder.Configuration);
+builder.Services.AddKafkaConsumerService<MagazzinoKafkaTopics, MagazzinoMessageHandlerFactory>(builder.Configuration);
+builder.Services.AddScoped<RiassortimentoCompletatoHandler>();
+builder.Services.AddKafkaProducerService<MagazzinoProducerKafkaTopics, MagazzinoProducerService>(builder.Configuration);
 
 // Database
 builder.Services.AddDbContext<MagazzinoDbContext>(options =>

@@ -95,6 +95,8 @@ services:
       JwtSettings__Secret: ${JWT_SECRET:-una-chiave-segreta-lunga-almeno-32-caratteri-cambiala}
       JwtSettings__Issuer: "Ecommerce.Utenti"
       JwtSettings__Audience: "Ecommerce"
+      Kafka__ProducerService__DelaySeconds: "5"
+      Kafka__ProducerService__IntervalSeconds: "30"
     depends_on:
       postgres:
         condition: service_healthy
@@ -127,29 +129,30 @@ services:
       kafka:
         condition: service_healthy
 
-  # Approvvigionamento e Pagamenti: al momento i WebApi sono ancora il template
-  # "weatherforecast" e non hanno un Dockerfile. Decommenta quando saranno pronti.
-  #
-  # approvvigionamento-webapi:
-  #   build:
-  #     context: .
-  #     dockerfile: src/Services/Approvvigionamento/Approvvigionamento.WebApi/Dockerfile
-  #     args:
-  #       GITHUB_TOKEN: ${GITHUB_TOKEN}
-  #   container_name: ecommerce-approvvigionamento-webapi
-  #   ports:
-  #     - "5093:8080"
-  #   environment:
-  #     ASPNETCORE_ENVIRONMENT: Development
-  #     ConnectionStrings__ApprovvigionamentoDb: "Host=postgres;Port=5432;Database=approvvigionamento_db;Username=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-postgres}"
-  #     Kafka__Enable: "true"
-  #     Kafka__ConsumerClient__BootstrapServers: "kafka:29092"
-  #     Kafka__ConsumerClient__GroupId: "approvvigionamento-consumer-group"
-  #   depends_on:
-  #     postgres:
-  #       condition: service_healthy
-  #     kafka:
-  #       condition: service_healthy
+  approvvigionamento-webapi:
+    build:
+      context: .
+      dockerfile: src/Services/Approvvigionamento/Approvvigionamento.WebApi/Dockerfile
+      args:
+        GITHUB_TOKEN: ${GITHUB_TOKEN}
+    container_name: ecommerce-approvvigionamento-webapi
+    ports:
+      - "5093:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__ApprovvigionamentoDb: "Host=postgres;Port=5432;Database=approvvigionamento_db;Username=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-postgres}"
+      Kafka__Enable: "true"
+      Kafka__AdminClient__BootstrapServers: "kafka:29092"
+      Kafka__ProducerClient__BootstrapServers: "kafka:29092"
+      Kafka__ConsumerClient__BootstrapServers: "kafka:29092"
+      Kafka__ConsumerClient__GroupId: "approvvigionamento-consumer-group"
+      Kafka__ProducerService__DelaySeconds: "5"
+      Kafka__ProducerService__IntervalSeconds: "30"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
 
   # ---------------------------------------------------------------- gateway e frontend
   gateway:
@@ -165,6 +168,7 @@ services:
       ReverseProxy__Clusters__utenti-cluster__Destinations__utenti-destination__Address: "http://utenti-webapi:8080"
       ReverseProxy__Clusters__magazzino-cluster__Destinations__magazzino-destination__Address: "http://magazzino-webapi:8080"
       ReverseProxy__Clusters__ordini-cluster__Destinations__ordini-destination__Address: "http://ordini-webapi:8080"
+      ReverseProxy__Clusters__approvvigionamento-cluster__Destinations__approvvigionamento-destination__Address: "http://approvvigionamento-webapi:8080"
     depends_on:
       - utenti-webapi
       - magazzino-webapi

@@ -3,6 +3,7 @@ using Utenti.Business.Interfaces;
 using Utenti.Data.Entities;
 using Utenti.Repository.Repositories;
 using Utenti.Shared.DTOs;
+using Utenti.Shared.Enums;
 
 namespace Utenti.Business.Services;
 
@@ -21,6 +22,11 @@ public class AuthService : IAuthService
 
     public async Task<UtenteDto> RegistraAsync(RegistrazioneRequest request)
     {
+        if (request.Ruolo == RuoloUtente.Admin)
+        {
+            throw new InvalidOperationException("Non puoi registrarti come amministratore.");
+        }
+        
         if (await _utenteRepository.EsisteEmailAsync(request.Email))
         {
             throw new InvalidOperationException("Email gia' registrata.");
