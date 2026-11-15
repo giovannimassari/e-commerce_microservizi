@@ -1,3 +1,4 @@
+using Common.Auth;
 using Approvvigionamento.Business.Kafka;
 using Approvvigionamento.Business.Services;
 using Approvvigionamento.Repository;
@@ -19,6 +20,9 @@ builder.Services.AddDbContext<ApprovvigionamentoDbContext>(options =>
 // Service
 builder.Services.AddScoped<IFornituraService, FornituraService>();
 
+// Autenticazione JWT (stesso segreto/issuer/audience di Utenti)
+builder.Services.AddJwtAuthentication(builder.Configuration);
+
 builder.Services.AddControllers();
 
 var app = builder.Build();
@@ -28,6 +32,9 @@ using (var scope = app.Services.CreateScope())
 {
     scope.ServiceProvider.GetRequiredService<ApprovvigionamentoDbContext>().Database.EnsureCreated();
 }
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 

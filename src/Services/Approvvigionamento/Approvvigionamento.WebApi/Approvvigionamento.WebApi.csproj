@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\Common.Auth\Common.Auth.csproj" />
     <ProjectReference Include="..\Approvvigionamento.Business\Approvvigionamento.Business.csproj" />
     <ProjectReference Include="..\Approvvigionamento.Repository\Approvvigionamento.Repository.csproj" />
     <ProjectReference Include="..\Approvvigionamento.Shared\Approvvigionamento.Shared.csproj" />

@@ -22,14 +22,14 @@ public class AuthService : IAuthService
 
     public async Task<UtenteDto> RegistraAsync(RegistrazioneRequest request)
     {
-        if (request.Ruolo == RuoloUtente.Admin)
-        {
-            throw new InvalidOperationException("Non puoi registrarti come amministratore.");
-        }
-        
         if (await _utenteRepository.EsisteEmailAsync(request.Email))
         {
             throw new InvalidOperationException("Email gia' registrata.");
+        }
+        
+        if (request.Ruolo == RuoloUtente.Admin)
+        {
+            throw new InvalidOperationException("Non puoi registrarti come amministratore.");
         }
 
         var utente = new Utente

@@ -1,3 +1,4 @@
+using Common.Auth;
 using Microsoft.EntityFrameworkCore;
 using Pagamenti.Business.Kafka;
 using Pagamenti.Business.Services;
@@ -19,6 +20,9 @@ builder.Services.AddDbContext<PagamentiDbContext>(options =>
 // Service
 builder.Services.AddScoped<IPagamentoService, PagamentoService>();
 
+// Autenticazione JWT (stesso segreto/issuer/audience di Utenti)
+builder.Services.AddJwtAuthentication(builder.Configuration);
+
 builder.Services.AddControllers();
 
 var app = builder.Build();
@@ -28,6 +32,9 @@ using (var scope = app.Services.CreateScope())
 {
     scope.ServiceProvider.GetRequiredService<PagamentiDbContext>().Database.EnsureCreated();
 }
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 

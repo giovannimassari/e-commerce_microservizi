@@ -1,7 +1,8 @@
+using Common.Auth;
 using Magazzino.Business.Services;
 using Magazzino.Shared.DTOs;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Magazzino.WebApi.Controllers;
 
@@ -10,6 +11,7 @@ namespace Magazzino.WebApi.Controllers;
 [Route("api/[controller]")]
 public class StockController(IStockService stockService) : ControllerBase
 {
+    // Lettura: qualunque utente autenticato
     [HttpGet]
     public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
     {
@@ -28,7 +30,9 @@ public class StockController(IStockService stockService) : ControllerBase
         return Ok(stock);
     }
 
+    // Scrittura: solo Admin
     [HttpPost]
+    [Authorize(Roles = Ruoli.Admin)]
     public async Task<IActionResult> CreateOrIncrement(
         [FromBody] CreaStockRequest request,
         CancellationToken cancellationToken)
@@ -45,6 +49,7 @@ public class StockController(IStockService stockService) : ControllerBase
     }
 
     [HttpPatch("{productId:guid}")]
+    [Authorize(Roles = Ruoli.Admin)]
     public async Task<IActionResult> AggiornaQuantita(
         Guid productId,
         [FromBody] AggiornaStockRequest request,

@@ -1,10 +1,13 @@
 using Approvvigionamento.Business.Services;
+using Common.Auth;
 using Approvvigionamento.Shared.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Approvvigionamento.WebApi.Controllers;
 
 [ApiController]
+[Authorize(Roles = Ruoli.Fornitore + "," + Ruoli.Admin)]
 [Route("api/forniture")]
 public class FornitureController(IFornituraService service) : ControllerBase
 {
@@ -27,6 +30,9 @@ public class FornitureController(IFornituraService service) : ControllerBase
     public async Task<ActionResult<FornituraDto>> Completa(
         Guid id, CompletaRichiestaRequest request, CancellationToken cancellationToken)
     {
+        // Il fornitore che completa la richiesta è quello del token, non quello scritto nel body
+        request.FornitoreId = User.GetUtenteId();
+
         try
         {
             return Ok(await service.CompletaRichiestaAsync(id, request, cancellationToken));
